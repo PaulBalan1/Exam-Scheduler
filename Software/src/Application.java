@@ -7,8 +7,8 @@ public class Application
     groupList.addGroup("IT2X");
     groupList.addGroup("SE5Y");
 
-    TestTaker testTaker1 = new TestTaker("Paul0", "123", groupList.getGroup("IT1Z"),"RO");
-    TestTaker testTaker2 = new TestTaker("Paul1", "1234", groupList.getGroup("IT1Z"),"MD");
+    TestTaker testTaker1 = new TestTaker("Paul0", "123", groupList.getGroup("IT1Z"),"romania");
+    TestTaker testTaker2 = new TestTaker("Paul1", "1234", groupList.getGroup("IT1Z"),"moldova");
     TestTaker testTaker3 = new TestTaker("Paul2", "12345", groupList.getGroup("SE5Y"),"EN");
     TestTaker testTaker4 = new TestTaker("Paul3", "123456", groupList.getGroup("SE5Y"),"RO");
 

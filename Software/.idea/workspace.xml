@@ -4,9 +4,7 @@
     <list default="true" id="0f31b051-7a63-441f-ba80-f5e5b238d944" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GroupList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TestTaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestTaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestTakerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestTakerList.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
