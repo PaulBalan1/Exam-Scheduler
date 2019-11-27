@@ -4,7 +4,6 @@ public class Application
   {
     GroupList groupList = new GroupList();
     groupList.addGroup("IT1Z");
-    groupList.addGroup("IT1Y");
     groupList.addGroup("IT2X");
     groupList.addGroup("SE5Y");
 
@@ -17,9 +16,8 @@ public class Application
     testTakerList.addTestTaker(testTaker1);
     testTakerList.addTestTaker(testTaker2);
     testTakerList.addTestTaker(testTaker3);
-    testTakerList.addTestTaker("Paul4", "123456", groupList.getGroup("IT1Z"), "RO");
+    testTakerList.addTestTaker("Paul4", "1234567", groupList.getGroup("IT1Z"), "RO");
 
-//    System.out.println(testTakerList);
-
+    System.out.println(testTakerList);
   }
 }

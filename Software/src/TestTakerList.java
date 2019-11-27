@@ -1,9 +1,12 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class TestTakerList
 {
   private ArrayList<TestTaker> testTakers = null;
+  static ArrayList<String> studyNumbers = new ArrayList<String>();    // Storing so we can check for duplicates, static because we want to access it outside
+
 
   public TestTakerList(){
     testTakers = new ArrayList<TestTaker>();

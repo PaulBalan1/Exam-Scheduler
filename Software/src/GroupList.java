@@ -10,6 +10,14 @@ public class GroupList
 
   public void addGroup(String groupName){
     Group aux = new Group(groupName);
+    for (Group group: groups)
+    {
+      if(group.getGroupName().equals(groupName)){
+        System.out.println("Group with this name already exists!");     //Add warning on enter
+        return;
+      }
+    }
+
     groups.add(aux);
   }
 

@@ -5,11 +5,15 @@ public class TestTaker
   private String nationality;
   private Group group;
 
+  private boolean studyNumberDuplicate;
+
   public TestTaker(String name, String studyNumber, Group group, String nationality){
-    this.name = name;
-    this.studyNumber = studyNumber;
+    studyNumberDuplicate = false;
+    setStudyNumber(studyNumber);
+    if(studyNumberDuplicate) return;            // TODO Study number duplicate error
+    setName(name);
     this.group = group;
-    this.nationality = nationality;
+    setNationality(nationality);
   }
 
   public void setName(String name)
@@ -24,6 +28,13 @@ public class TestTaker
 
   public void setStudyNumber(String studyNumber)
   {
+    if(TestTakerList.studyNumbers.contains(studyNumber))
+    {
+      System.out.println("Study number already exists!");
+      studyNumberDuplicate = true;
+    }
+
+    TestTakerList.studyNumbers.add(studyNumber);
     this.studyNumber = studyNumber;
   }
 
