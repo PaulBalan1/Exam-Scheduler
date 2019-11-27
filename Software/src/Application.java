@@ -19,7 +19,7 @@ public class Application
     testTakerList.addTestTaker(testTaker3);
     testTakerList.addTestTaker("Paul4", "123456", groupList.getGroup("IT1Z"), "RO");
 
-    System.out.println(testTakerList);
+//    System.out.println(testTakerList);
 
   }
 }
