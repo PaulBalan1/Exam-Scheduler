@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -21,7 +20,7 @@ public class TestTakerList
     testTakers.add(aux);
   }
 
-  public TestTaker getTestTaker(String identifier){
+  public TestTaker getTestTakerByNameOrStudyNumber(String identifier){
     if(Character.isDigit(identifier.charAt(0))){  //Check if identifier is Study Number
       for (TestTaker testTaker: testTakers)
       {

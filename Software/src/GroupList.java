@@ -4,15 +4,18 @@ public class GroupList
 {
   private ArrayList<Group> groups = null;
 
-  public GroupList(){
+  public GroupList()
+  {
     groups = new ArrayList<Group>();
   }
 
-  public void addGroup(String groupName){
+  public void addGroup(String groupName)
+  {
     Group aux = new Group(groupName);
-    for (Group group: groups)
+    for (Group group : groups)
     {
-      if(group.getGroupName().equals(groupName)){
+      if (group.getGroupName().equals(groupName))
+      {
         System.out.println("Group with this name already exists!");     //Add warning on enter
         return;
       }
@@ -21,35 +24,56 @@ public class GroupList
     groups.add(aux);
   }
 
-  public void removeGroup(String groupName){
-    for (Group group: groups)
+  public void removeGroup(String groupName)
+  {
+    for (Group group : groups)
     {
-      if(group.getGroupName().equals(groupName)){
+      if (group.getGroupName().equals(groupName))
+      {
         groups.remove(group);
         return;
       }
     }
   }
 
-  public void removeGroup(int index){
-    groups.remove(index);
-  }
-
-  public Group getGroup(int index){
-    return groups.get(index);
-  }
-
-  public Group getGroup(String groupName){
-    for (Group group: groups)
+  public void removeGroup(int index)
+  {
+    try
     {
-      if(group.toString().equals(groupName)) return group;
+      groups.remove(index);
+    }
+    catch (IndexOutOfBoundsException e)
+    {
+      System.out.println("Index out of bounds. Enter valid index.");
+    }
+  }
+
+  public Group getGroup(int index)
+  {
+    try
+    {
+      groups.get(index);
+    }
+    catch (IndexOutOfBoundsException e)
+    {
+      System.out.println("Index out of bounds. Enter valid index.");
     }
     return null;
   }
 
-  public String toString(){
+  public Group getGroup(String groupName)
+  {
+    for (Group group : groups)
+    {
+      if (group.toString().equals(groupName)) return group;
+    }
+    return null;
+  }
+
+  public String toString()
+  {
     String aux = "";
-    for (Group group: groups)
+    for (Group group : groups)
     {
       aux += group + "\n";
     }

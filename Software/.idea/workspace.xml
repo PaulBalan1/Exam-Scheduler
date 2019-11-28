@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f31b051-7a63-441f-ba80-f5e5b238d944" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Classroom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ClassroomList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Astah/Domain Model (Relations-only).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../Astah/Domain Model (Relations-only).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Astah/Domain Model (Relations-only).jpg.bak" beforeDir="false" afterPath="$PROJECT_DIR$/../Astah/Domain Model (Relations-only).jpg.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Astah/sep.asta" beforeDir="false" afterPath="$PROJECT_DIR$/../Astah/sep.asta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/GroupList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/GroupList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/TestTakerList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/TestTakerList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestTaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestTaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestTakerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestTakerList.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +32,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1UCutJhQvuUxnJ1uHeut3GVgwgV" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -68,7 +79,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
