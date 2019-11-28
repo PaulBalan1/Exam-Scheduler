@@ -9,26 +9,34 @@ public class ClassroomList
   }
 
   public void addClassroom(Classroom classroom){
-    if(classrooms.contains(classroom)) {
-      System.out.println("Classroom with same name already exists!");     //Add warning on enter
-      return;
+    for(Classroom aux: classrooms){
+      if(aux.getName().equals(classroom.getName()))
+      {
+        System.out.println("Classroom with same name already exists!");     //Add warning on enter
+        return;
+      }
     }
     classrooms.add(classroom);
   }
 
   public void addClassroom(String name, int capacity, boolean hasProjector){
     Classroom aux = new Classroom(name, capacity, hasProjector);
-    if(classrooms.contains(aux)) {
-      System.out.println("Classroom with same name already exists!");     //Add warning on enter
-      return;
+    for(Classroom classroom: classrooms){
+      if(classroom.getName().equals(aux.getName()))
+      {
+        System.out.println("Classroom with same name already exists!");     //Add warning on enter
+        return;
+      }
     }
     classrooms.add(aux);
   }
 
   public void removeClassroom(String name){
     for(Classroom classroom: classrooms){
-      if(classroom.getName().equals(name)) classrooms.remove(classroom);
-      break;
+      if(classroom.getName().equals(name)){
+        classrooms.remove(classroom);
+        break;
+      }
     }
   }
 

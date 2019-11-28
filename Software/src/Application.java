@@ -5,12 +5,12 @@ public class Application
     Classroom classroom0 = new Classroom("213A",40, true);
     Classroom classroom1 = new Classroom("213B",50, false);
     Classroom classroom2 = new Classroom("213C",60, true);
-    ClassroomList classrooms = new ClassroomList();
-    classrooms.addClassroom(classroom0);
-    classrooms.addClassroom(classroom1);
-    classrooms.addClassroom(classroom2);
+    ClassroomList classroomList = new ClassroomList();
+    classroomList.addClassroom(classroom0);
+    classroomList.addClassroom(classroom1);
+    classroomList.addClassroom(classroom2);
 
-    System.out.println(classrooms.getClassroomsWithProjectors());
+    System.out.println(classroomList.getClassroomsWithProjectors());
 
     GroupList groupList = new GroupList();
     groupList.addGroup("IT1Z");
@@ -30,6 +30,18 @@ public class Application
     testTakerList.addTestTaker(testTaker3);
     testTakerList.addTestTaker("Paul4", "1234567", groupList.getGroup("IT1Z"), "RO");
 
-    System.out.println(testTakerList);
+    Course course0 = new Course("SDJ1");
+    Course course1 = new Course("RWD2");
+    Course course2 = new Course("SEP5");
+    CourseList courseList = new CourseList();
+    courseList.addCourse(course0);
+    courseList.addCourse("RWD1");
+    courseList.addCourse(course1);
+    courseList.addCourse(course2);
+    courseList.addCourse("RWD1");
+    courseList.removeCourse("RWD1");
+    courseList.removeCourse(course0);
+
+    System.out.println(courseList);
   }
 }
