@@ -1,4 +1,6 @@
-public class Application
+import Classes.*;
+
+public class Application1
 {
   public static void main(String[] args)
   {
@@ -42,6 +44,14 @@ public class Application
     courseList.removeCourse("RWD1");
     courseList.removeCourse(course0);
 
-    System.out.println(courseList);
+    Examiner examiner1 = new Examiner("Nicolai Sand");
+    examiner1.setCourse(course1);
+    Date date1 = new Date(6,12);
+    Exam exam = new Exam("RWDI", date1, course0, 3, classroom0, examiner1, testTakerList);
+    exam.setCoExaminer("Bob");
+    ExamList examList = new ExamList();
+    examList.addExam(exam);
+
+    System.out.println(exam);
   }
 }

@@ -1,3 +1,5 @@
+package Classes;
+
 import java.util.ArrayList;
 
 public class ExamList
@@ -12,7 +14,7 @@ public class ExamList
     for(Exam aux: exams){
       if(aux.getDate().equals(exam.getDate()))
       {
-        System.out.println("Exam on this date already exists!");     //Add warning on enter
+        System.out.println("Classes.Exam on this date already exists!");     //Add warning on enter
         return;
       }
     }
@@ -33,4 +35,13 @@ public class ExamList
     }
   }
 
+  @Override public String toString()
+  {
+    String aux = "";
+    for (Exam exam: exams)
+    {
+      aux += exam + "\n";
+    }
+    return aux;
+  }
 }

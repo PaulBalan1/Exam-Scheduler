@@ -1,3 +1,5 @@
+package Classes;
+
 import java.util.ArrayList;
 
 public class GroupList
@@ -16,7 +18,7 @@ public class GroupList
     {
       if (group.getGroupName().equals(groupName))
       {
-        System.out.println("Group with this name already exists!");     //Add warning on enter
+        System.out.println("Classes.Group with this name already exists!");     //Add warning on enter
         return;
       }
     }

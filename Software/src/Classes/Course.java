@@ -1,3 +1,5 @@
+package Classes;
+
 public class Course
 {
   private String name;

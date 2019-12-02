@@ -1,3 +1,5 @@
+package Classes;
+
 public class Exam
 {
   private String name;
@@ -14,6 +16,18 @@ public class Exam
   public Exam(String name, Date date, Course course, int typeIndex, Classroom classroom, Examiner examiner, TestTakerList testTakers){
     setName(name);
     setDate(date);
+    setCourse(course);
+    setType(typeIndex);    // 0 for written , 1 for oral
+    setClassroom(classroom);
+    setExaminer(examiner);
+    setTestTakers(testTakers);
+    coExaminer = "";
+  }
+
+  public Exam(String name, int day, int month, int year, Course course, int typeIndex, Classroom classroom, Examiner examiner, TestTakerList testTakers){
+    setName(name);
+    Date aux = new Date(day,month,year);
+    setDate(aux);
     setCourse(course);
     setType(typeIndex);    // 0 for written , 1 for oral
     setClassroom(classroom);
@@ -107,7 +121,7 @@ public class Exam
 
   @Override public String toString()
   {
-    return "Exam{" + "name='" + name + '\'' + ", date=" + date + ", course="
+    return "Classes.Exam{" + "name='" + name + '\'' + ", date=" + date + ", course="
         + course + ", classroom=" + classroom + ", examiner=" + examiner
         + ", coExaminer='" + coExaminer + '\'' + ", testTakers=" + testTakers
         + '}';

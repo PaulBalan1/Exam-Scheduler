@@ -1,3 +1,5 @@
+package Classes;
+
 public class Examiner {
     private String name;
     private Course course;
@@ -30,7 +32,7 @@ public class Examiner {
 
     @Override
     public String toString() {
-        return "Examiner{" +
+        return "Classes.Examiner{" +
                 "name='" + name + '\'' +
                 ", course=" + course +
                 '}';

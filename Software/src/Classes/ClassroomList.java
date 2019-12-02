@@ -1,3 +1,5 @@
+package Classes;
+
 import java.util.ArrayList;
 
 public class ClassroomList
@@ -12,7 +14,7 @@ public class ClassroomList
     for(Classroom aux: classrooms){
       if(aux.getName().equals(classroom.getName()))
       {
-        System.out.println("Classroom with same name already exists!");     //Add warning on enter
+        System.out.println("Classes.Classroom with same name already exists!");     //Add warning on enter
         return;
       }
     }
@@ -24,7 +26,7 @@ public class ClassroomList
     for(Classroom classroom: classrooms){
       if(classroom.getName().equals(aux.getName()))
       {
-        System.out.println("Classroom with same name already exists!");     //Add warning on enter
+        System.out.println("Classes.Classroom with same name already exists!");     //Add warning on enter
         return;
       }
     }
