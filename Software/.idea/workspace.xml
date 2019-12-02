@@ -2,34 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f31b051-7a63-441f-ba80-f5e5b238d944" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FxmlFiles/MainMenu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LayoutClasses/MainMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/Classroom.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/ClassroomList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/Course.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/CourseList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/Group.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/GroupList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/TestTaker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/TestTakerList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Classroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClassroomList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/ClassroomList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CourseList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/CourseList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Exam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ExamList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/ExamList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examiner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Examiner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ExaminerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/ExaminerList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GroupList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/GroupList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestTaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/TestTaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestTakerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/TestTakerList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/FxmlFiles/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/FxmlFiles/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FxmlFiles/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FxmlFiles/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,38 +158,38 @@
       <screen x="0" y="0" width="1536" height="764" />
     </state>
     <state x="475" y="124" key="FileChooserDialogImpl/0.0.1536.764@0.0.1536.764" timestamp="1575280939589" />
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1575286851499">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1575325116066">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.764@0.0.1536.764" timestamp="1575286851499" />
-    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1575286851499">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.764@0.0.1536.764" timestamp="1575325116066" />
+    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1575325116066">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.764@0.0.1536.764" timestamp="1575286851499" />
-    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1575286851499">
+    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.764@0.0.1536.764" timestamp="1575325116066" />
+    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1575325116066">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.764@0.0.1536.764" timestamp="1575286851499" />
-    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1575286851499">
+    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.764@0.0.1536.764" timestamp="1575325116066" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1575325116066">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.764@0.0.1536.764" timestamp="1575286851499" />
-    <state width="791" height="226" key="GridCell.Tab.1.bottom" timestamp="1575285326662">
+    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.764@0.0.1536.764" timestamp="1575325116066" />
+    <state width="791" height="226" key="GridCell.Tab.1.bottom" timestamp="1575288908393">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="791" height="226" key="GridCell.Tab.1.bottom/0.0.1536.764@0.0.1536.764" timestamp="1575285326662" />
-    <state width="791" height="226" key="GridCell.Tab.1.center" timestamp="1575285326662">
+    <state width="791" height="226" key="GridCell.Tab.1.bottom/0.0.1536.764@0.0.1536.764" timestamp="1575288908393" />
+    <state width="791" height="226" key="GridCell.Tab.1.center" timestamp="1575288908392">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="791" height="226" key="GridCell.Tab.1.center/0.0.1536.764@0.0.1536.764" timestamp="1575285326662" />
-    <state width="791" height="226" key="GridCell.Tab.1.left" timestamp="1575285326662">
+    <state width="791" height="226" key="GridCell.Tab.1.center/0.0.1536.764@0.0.1536.764" timestamp="1575288908392" />
+    <state width="791" height="226" key="GridCell.Tab.1.left" timestamp="1575288908392">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="791" height="226" key="GridCell.Tab.1.left/0.0.1536.764@0.0.1536.764" timestamp="1575285326662" />
-    <state width="791" height="226" key="GridCell.Tab.1.right" timestamp="1575285326662">
+    <state width="791" height="226" key="GridCell.Tab.1.left/0.0.1536.764@0.0.1536.764" timestamp="1575288908392" />
+    <state width="791" height="226" key="GridCell.Tab.1.right" timestamp="1575288908393">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="791" height="226" key="GridCell.Tab.1.right/0.0.1536.764@0.0.1536.764" timestamp="1575285326662" />
+    <state width="791" height="226" key="GridCell.Tab.1.right/0.0.1536.764@0.0.1536.764" timestamp="1575288908393" />
     <state x="250" y="0" key="SettingsEditor" timestamp="1575284618197">
       <screen x="0" y="0" width="1536" height="764" />
     </state>

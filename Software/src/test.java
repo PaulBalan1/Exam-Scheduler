@@ -12,11 +12,9 @@ public class test extends Application
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("FxmlFiles/MainMenu.fxml"));
     Parent root = loader.load();
-    MainMenu model = new MainMenu();
+    //MainMenu model = new MainMenu();
     primaryStage.setTitle("Exam Scheduler");
     primaryStage.setScene(new Scene(root, 700, 500));
-    public void sizeToScene()
-
     primaryStage.show();
   }
 
