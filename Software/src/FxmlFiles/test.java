@@ -1,3 +1,5 @@
+package FxmlFiles;
+
 import LayoutClasses.MainMenu;
 import javafx.application.Application;
 import javafx.fxml.FXML;

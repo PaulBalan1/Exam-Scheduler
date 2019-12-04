@@ -24,7 +24,7 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Button minWidth="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Input Data" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="e.g. courses, classrooms, examiners, test-takers, etc..." wrappingWidth="330.6320495605469" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="e.g. courses, classrooms, examiners, FxmlFiles.test-takers, etc..." wrappingWidth="330.6320495605469" />
                </children>
                <VBox.margin>
                   <Insets top="40.0" />

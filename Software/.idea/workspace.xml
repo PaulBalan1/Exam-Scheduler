@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f31b051-7a63-441f-ba80-f5e5b238d944" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/FxmlFiles/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/FxmlFiles/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/test.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classes/GroupList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/GroupList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classes/TestTaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/TestTaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +64,7 @@
       </method>
     </configuration>
     <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="FxmlFiles.test" />
       <module name="Software" />
       <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
