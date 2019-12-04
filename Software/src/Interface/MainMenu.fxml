@@ -19,25 +19,8 @@
             </Text>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-<<<<<<< HEAD:Software/src/FxmlFiles/MainMenu.fxml
-                  <Button minWidth="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Input Data" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="e.g. courses, classrooms, examiners, FxmlFiles.test-takers, etc..." wrappingWidth="330.6320495605469" />
-               </children>
-               <VBox.margin>
-                  <Insets top="40.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-               <children>
-                  <Button minWidth="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Edit Data" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="remove/edit input data" wrappingWidth="330.6320495605469" />
-=======
                   <Button fx:id="manageDataButton" minWidth="100.0" mnemonicParsing="false" onAction="#pushButtonManageData" prefHeight="25.0" prefWidth="101.0" text="Manage Data" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add/Remove/Edit Data" wrappingWidth="330.6320495605469" />
->>>>>>> e14e164b424e4989ff0e0ceb86b1addb0e72a5fc:Software/src/Interface/MainMenu.fxml
                </children>
                <VBox.margin>
                   <Insets />
