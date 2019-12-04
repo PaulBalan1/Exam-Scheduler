@@ -30,7 +30,7 @@ public class TestTakerList
       }
     }
     if(Collections.frequency(testTakers, identifier)>1){  // If identifier is Student Name proceed here
-      System.out.println("Warning! Several FxmlFiles.test-takers by the same name! First instance selected.");
+      System.out.println("Warning! Several test-takers by the same name! First instance selected.");
     }
     for (TestTaker testTaker: testTakers)
     {
