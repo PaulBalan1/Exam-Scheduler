@@ -23,7 +23,7 @@ public class TestTaker
     this.name = name;
   }
 
-  public void setNationality(String nationality)      //Takes first 2 chars and makes them uppercase
+  public void setNationality(String nationality)                    //Takes first 2 chars and makes them uppercase
   {
     this.nationality = nationality.substring(0,2).toUpperCase();
   }

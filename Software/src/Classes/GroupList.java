@@ -18,7 +18,7 @@ public class GroupList
     {
       if (group.getGroupName().equals(groupName))
       {
-        System.out.println("Classes.Group with this name already exists!");     //Add warning on enter
+        System.out.println("Group with this name already exists!");     //Add warning on enter
         return;
       }
     }
