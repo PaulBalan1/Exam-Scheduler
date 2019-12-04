@@ -12,17 +12,16 @@ import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
-public class MainMenu{
-  @FXML Button manageDataButton;
-  @FXML Button scheduleExamButton;
+public class ManageData
+{
+  @FXML Button backButton;
+  @FXML static public ChoiceBox<String> choiceBoxButton = new ChoiceBox<>();
 
-  public void pushButtonManageData(ActionEvent event)
+
+  public void pushBackButton(ActionEvent event)
       throws IOException {
-    ManageData.choiceBoxButton.getItems().add("Examiners");
-    ManageData.choiceBoxButton.setValue("Examiners");
-    System.out.println(ManageData.choiceBoxButton.getItems());
     FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(getClass().getResource("ManageData.fxml"));
+    loader.setLocation(getClass().getResource("MainMenu.fxml"));
     Parent root = loader.load();
     Scene scene = new Scene(root, 700,500);
     Stage menu = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -30,4 +29,3 @@ public class MainMenu{
     menu.show();
   }
 }
-
