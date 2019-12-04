@@ -14,7 +14,7 @@ public class test extends Application
   public void start(Stage primaryStage) throws Exception{
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("FxmlFiles/MainMenu.fxml"));
-    Parent root = loader.load();
+    Parent root = loader.load();//Hi you fuck
     //MainMenu model = new MainMenu();
     primaryStage.setTitle("Exam Scheduler");
     primaryStage.setScene(new Scene(root, 700, 500));
