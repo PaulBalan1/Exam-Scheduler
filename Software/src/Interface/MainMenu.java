@@ -14,16 +14,6 @@ public class MainMenu{
   @FXML Button manageDataButton;
   @FXML Button scheduleExamButton;
 
-//  public void pushButtonManageData (ActionEvent event) throws IOException {
-//    FXMLLoader loader = new FXMLLoader();
-//    loader.setLocation(getClass().getResource("FxmlFiles/ManageData.fxml"));
-//    Parent root = loader.load();
-//    Scene scene = new Scene(root);
-//    Stage menu = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//    menu.setScene(scene);
-//    menu.show();
-//  }
-
   public void pushButtonManageData(javafx.event.ActionEvent event)
       throws IOException {
     FXMLLoader loader = new FXMLLoader();
