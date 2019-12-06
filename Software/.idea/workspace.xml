@@ -3,14 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0f31b051-7a63-441f-ba80-f5e5b238d944" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/Interface/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/Interface/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/Application1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Software/Interface/ManageData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/Interface/ManageData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/Interface/ManageData.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/Interface/ManageData.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/Interface/test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/ManageData.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/ManageData.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestRun.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/ManageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/ManageData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/Launcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,14 +52,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Launcher">
-    <configuration name="Application1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Application1" />
-      <module name="Software" />
-      <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Interface.Launcher" />
       <module name="Software" />
@@ -74,6 +62,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRun" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestRun" />
+      <module name="Software" />
+      <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -130,14 +126,14 @@
     </configuration>
     <list>
       <item itemvalue="Application.test" />
-      <item itemvalue="Application.Application1" />
       <item itemvalue="Application.Launcher" />
+      <item itemvalue="Application.TestRun" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Launcher" />
+        <item itemvalue="Application.TestRun" />
         <item itemvalue="Application.test" />
-        <item itemvalue="Application.Application1" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.test" />
       </list>
@@ -182,10 +178,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="225" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575546489242">
+    <state x="225" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575560115248">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state x="225" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.764@0.0.1536.764" timestamp="1575546489242" />
+    <state x="225" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.764@0.0.1536.764" timestamp="1575560115248" />
     <state x="539" y="106" key="#com.intellij.ide.util.MemberChooser" timestamp="1575280152471">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
@@ -199,22 +195,22 @@
       <screen x="0" y="0" width="1536" height="764" />
     </state>
     <state x="475" y="124" key="FileChooserDialogImpl/0.0.1536.764@0.0.1536.764" timestamp="1575465787557" />
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1575546439486">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1575585250764">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.764@0.0.1536.764" timestamp="1575546439486" />
-    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1575546439485">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.764@0.0.1536.764" timestamp="1575585250764" />
+    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1575585250764">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.764@0.0.1536.764" timestamp="1575546439485" />
-    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1575546439485">
+    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.764@0.0.1536.764" timestamp="1575585250764" />
+    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1575585250763">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.764@0.0.1536.764" timestamp="1575546439485" />
-    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1575546439486">
+    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.764@0.0.1536.764" timestamp="1575585250763" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1575585250764">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.764@0.0.1536.764" timestamp="1575546439486" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.764@0.0.1536.764" timestamp="1575585250764" />
     <state width="791" height="226" key="GridCell.Tab.1.bottom" timestamp="1575288908393">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
