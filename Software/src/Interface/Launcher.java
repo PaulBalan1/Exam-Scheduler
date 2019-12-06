@@ -22,8 +22,8 @@ public class Launcher extends Application
 
   @Override
   public void start(Stage primaryStage) throws Exception{
-    sizeX = 600;
-    sizeY = 500;
+    sizeX = 800;
+    sizeY = 600;
 
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("MainMenu.fxml"));
