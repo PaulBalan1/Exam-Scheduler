@@ -7,16 +7,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
 public class MainMenu{
   @FXML Button manageDataButton;
-  @FXML Button scheduleExamButton;
 
-  public void pushButtonManageData(javafx.event.ActionEvent event)
-      throws IOException {
+  public void pushButtonManageData(javafx.event.ActionEvent event) throws IOException {
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("ManageData.fxml"));
     Parent root = loader.load();

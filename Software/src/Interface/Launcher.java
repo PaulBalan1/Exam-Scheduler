@@ -22,7 +22,7 @@ public class Launcher extends Application
 
   @Override
   public void start(Stage primaryStage) throws Exception{
-    sizeX = 1000;
+    sizeX = 800;
     sizeY = 700;
 
     FXMLLoader loader = new FXMLLoader();

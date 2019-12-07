@@ -10,15 +10,28 @@ public class CourseList
     courses = new ArrayList<Course>();
   }
 
-  public void addCourse(Course course){
+  public ArrayList<Course> getCourses()
+  {
+    return courses;
+  }
+
+  public int size(){
+    return courses.size();
+  }
+
+  public boolean courseNameValidator(Course course){
+    if(course.getName().equals("")) return false;
     for(Course aux : courses){
       if(aux.getName().equals(course.getName()))
       {
-        System.out.println("Classes.Course with same name already exists!");     //Add warning on enter
-        return;
+        return false;
       }
     }
-    courses.add(course);
+    return true;
+  }
+
+  public void addCourse(Course course){
+    if(courseNameValidator(course)) courses.add(course);
   }
 
   public void addCourse(String name){
