@@ -105,6 +105,15 @@
                         <Label layoutX="735.0" layoutY="375.0" text="Classroom" />
                      </children>
                   </Pane>
+                  <Pane fx:id="groups" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <TableView prefHeight="334.0" prefWidth="800.0">
+                        <columns>
+                           <TableColumn prefWidth="800.0" text="Group Name" />
+                        </columns>
+                     </TableView>
+                     <Label layoutX="350.0" layoutY="378.0" text="Course name" textAlignment="CENTER" />
+                     <TextField layoutX="300.0" layoutY="402.0" />
+                  </Pane>
                   <Pane fx:id="courses" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView prefHeight="334.0" prefWidth="798.0">
@@ -113,17 +122,8 @@
                           </columns>
                         </TableView>
                         <Label layoutX="349.0" layoutY="377.0" text="Course name" textAlignment="CENTER" />
-                        <TextField layoutX="310.0" layoutY="394.0" />
+                        <TextField fx:id="courseName" layoutX="310.0" layoutY="394.0" />
                      </children>
-                  </Pane>
-                  <Pane fx:id="groups" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <TableView prefHeight="334.0" prefWidth="800.0">
-                        <columns>
-                           <TableColumn prefWidth="800.0" text="Group Name" />
-                        </columns>
-                     </TableView>
-                     <Label layoutX="350.0" layoutY="378.0" text="Course name" textAlignment="CENTER" />
-                     <TextField fx:id="courseName" layoutX="311.0" layoutY="395.0" />
                   </Pane>
                   <Button fx:id="add" layoutX="263.0" layoutY="460.0" mnemonicParsing="false" onAction="#addCourse" prefHeight="25.0" prefWidth="59.0" text="Add" />
                   <Button fx:id="modify" layoutX="348.0" layoutY="460.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Modify" />

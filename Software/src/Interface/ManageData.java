@@ -95,7 +95,7 @@ public class ManageData
   }
 
   public void addCourse(){
-    //courseList.addCourse(courseName.getText());
-    System.out.println(courseName.getText());
+    courseList.addCourse(courseName.getText());
+    System.out.println(courseList);
   }
 }
