@@ -80,8 +80,4 @@ public class ManageData
     menu.setScene(scene);
     menu.show();
   }
-
-  public void addTestTaker(){
-    String name =
-  }
 }
