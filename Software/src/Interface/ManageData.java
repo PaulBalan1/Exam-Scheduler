@@ -1,5 +1,6 @@
 package Interface;
 
+import Classes.CourseList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -96,7 +97,7 @@ public class ManageData
   public void addCourse(){
     courseList.addCourse(courseName.getText());
     courseTableView.getItems().add(courseName.getText());
-    courseNameCol.setCe
+
     System.out.println(courseList.toString());
 
 
