@@ -1,6 +1,5 @@
 package Interface;
 
-import Classes.CourseList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -17,11 +15,9 @@ import java.io.IOException;
 
 public class ManageData
 {
-  //header
   @FXML Button backButton;
   @FXML ChoiceBox<String> choiceBoxButton;
 
-  //panes
   @FXML Pane courses;
   @FXML Pane classrooms;
   @FXML Pane groups;
@@ -29,17 +25,6 @@ public class ManageData
   @FXML Pane testTakers;
   @FXML Pane exams;
 
-
-  //3 buttons
-  @FXML Button add, modify, remove;
-
-  //text fields
-
-  //course
-  @FXML TextField courseName;
-
-
-  CourseList courseList = new CourseList();
 
   public void initialize()
   {
@@ -96,8 +81,7 @@ public class ManageData
     menu.show();
   }
 
-  public void addCourse(){
-    courseList.addCourse(courseName.getText());
-    System.out.println(courseList.toString());
+  public void addTestTaker(){
+    String name =
   }
 }
