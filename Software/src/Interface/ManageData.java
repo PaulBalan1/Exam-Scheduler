@@ -71,8 +71,7 @@ public class ManageData
     exams.setVisible(false);
   }
 
-  public void pushBackButton(ActionEvent event)
-      throws IOException {
+  public void pushBackButton(ActionEvent event) throws IOException {
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("MainMenu.fxml"));
     Parent root = loader.load();
