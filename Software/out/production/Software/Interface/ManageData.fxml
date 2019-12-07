@@ -23,9 +23,9 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Pane fx:id="examiners" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane fx:id="examiners" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView prefHeight="334.0" prefWidth="800.0">
+                        <TableView fx:id="courseTableView" prefHeight="334.0" prefWidth="800.0">
                           <columns>
                             <TableColumn prefWidth="400.0" text="Name" />
                             <TableColumn prefWidth="400.0" text="Course" />
@@ -73,7 +73,7 @@
                         <Label layoutX="162.0" layoutY="376.0" text="Classroom Name" textAlignment="CENTER" />
                      </children>
                   </Pane>
-                  <Pane fx:id="exams" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane fx:id="exams" layoutX="-2.0" prefHeight="334.0" prefWidth="800.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView prefHeight="334.0" prefWidth="800.0">
                           <columns>
@@ -105,7 +105,7 @@
                         <Label layoutX="735.0" layoutY="375.0" text="Classroom" />
                      </children>
                   </Pane>
-                  <Pane fx:id="courses" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane fx:id="courses" layoutX="-2.0" prefHeight="334.0" prefWidth="800.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView prefHeight="334.0" prefWidth="798.0">
                           <columns>
@@ -116,7 +116,7 @@
                         <TextField fx:id="courseName" layoutX="330.0" layoutY="394.0" />
                      </children>
                   </Pane>
-                  <Pane fx:id="groups" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane fx:id="groups" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <TableView prefHeight="334.0" prefWidth="800.0">
                         <columns>
                            <TableColumn prefWidth="800.0" text="Group Name" />
