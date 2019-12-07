@@ -25,7 +25,7 @@
                <children>
                   <Pane fx:id="examiners" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView fx:id="courseTableView" prefHeight="334.0" prefWidth="800.0">
+                        <TableView prefHeight="334.0" prefWidth="800.0">
                           <columns>
                             <TableColumn prefWidth="400.0" text="Name" />
                             <TableColumn prefWidth="400.0" text="Course" />
@@ -134,7 +134,7 @@
                   <Pane fx:id="groups" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <TableView prefHeight="334.0" prefWidth="800.0">
                         <columns>
-                           <TableColumn fx:id="courseNameCol" prefWidth="800.0" text="Group Name" />
+                           <TableColumn prefWidth="800.0" text="Group Name" />
                         </columns>
                      </TableView>
                      <Label layoutX="350.0" layoutY="378.0" text="Course name" textAlignment="CENTER" />

@@ -6,7 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -33,8 +35,6 @@ public class ManageData
 
   //course
   @FXML TextField courseName;
-  @FXML TableView<String> courseTableView = new TableView<>();
-  @FXML TableColumn courseNameCol;
 
 
   CourseList courseList = new CourseList();
@@ -96,10 +96,8 @@ public class ManageData
 
   public void addCourse(){
     courseList.addCourse(courseName.getText());
-    courseTableView.getItems().add(courseName.getText());
+    //courseTableView.getItems().add(courseName.getText());
 
     System.out.println(courseList.toString());
-
-
   }
 }
