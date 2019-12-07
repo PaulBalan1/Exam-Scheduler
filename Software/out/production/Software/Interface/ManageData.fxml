@@ -4,24 +4,45 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interface.ManageData">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interface.ManageData">
    <children>
-      <SplitPane dividerPositions="0.08862876254180602" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" minWidth="56.0" mnemonicParsing="false" onAction="#pushBackButton" text="&lt;- Back" />
+      <ChoiceBox fx:id="choiceBoxButton" accessibleText="Test" layoutX="91.0" layoutY="14.0" minWidth="150.0" onAction="#getSelectedOption" prefWidth="150.0" />
+      <Pane fx:id="classrooms" layoutX="10.0" layoutY="79.0" prefHeight="333.0" prefWidth="600.0">
+         <children>
+            <AnchorPane layoutX="-10.0" layoutY="-10.0" prefHeight="333.0" prefWidth="600.0">
                <children>
-                  <Button fx:id="backButton" layoutX="37.0" layoutY="12.0" minWidth="56.0" mnemonicParsing="false" onAction="#pushBackButton" text="&lt;- Back" />
-                  <ChoiceBox fx:id="choiceBoxButton" accessibleText="Test" layoutX="138.0" layoutY="12.0" minWidth="150.0" onAction="#getSelectedOption" prefWidth="150.0" />
+                  <TableView prefHeight="200.0" prefWidth="600.0">
+                     <columns>
+                        <TableColumn prefWidth="100.0" text="Classroom Name" />
+                        <TableColumn prefWidth="75.0" text="Capacity" />
+                        <TableColumn prefWidth="75.0" text="HDMI/VGA" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="265.0" layoutY="210.0" text="Capacity" textAlignment="CENTER" />
+                  <TextField layoutX="260.0" layoutY="231.0" prefHeight="25.0" prefWidth="70.0" />
+                  <Button layoutX="188.0" layoutY="293.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Add" />
+                  <Button layoutX="265.0" layoutY="293.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Modify" />
+                  <Button layoutX="350.0" layoutY="293.0" mnemonicParsing="false" text="Remove" />
+                  <Label layoutX="85.0" layoutY="210.0" text="Classroom Name" textAlignment="CENTER" />
+                  <TextField layoutX="58.0" layoutY="231.0" />
+                  <CheckBox layoutX="396.0" layoutY="235.0" mnemonicParsing="false" text="HDMI / VGA" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         </children>
+      </Pane>
+      <Pane fx:id="examiners" layoutY="69.0" prefHeight="333.0" prefWidth="600.0" />
+      <Pane fx:id="testTakers" layoutY="69.0" prefHeight="333.0" prefWidth="600.0" />
+      <Pane fx:id="exams" layoutY="69.0" prefHeight="333.0" prefWidth="600.0" />
+      <Pane fx:id="courses" layoutY="69.0" prefHeight="333.0" prefWidth="600.0">
+         <children>
+            <AnchorPane prefHeight="333.0" prefWidth="600.0">
                <children>
                   <Pane fx:id="examiners" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -134,7 +155,19 @@
                   </Pane>
                </children>
             </AnchorPane>
-        </items>
-      </SplitPane>
+         </children>
+      </Pane>
+      <Pane fx:id="groups" layoutY="69.0" prefHeight="333.0" prefWidth="600.0">
+         <TableView prefHeight="200.0" prefWidth="600.0">
+            <columns>
+               <TableColumn prefWidth="100.0" text="Group Name" />
+            </columns>
+         </TableView>
+         <Label layoutX="265.0" layoutY="210.0" text="Course name" textAlignment="CENTER" />
+         <TextField layoutX="226.0" layoutY="231.0" />
+         <Button layoutX="188.0" layoutY="293.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Add" />
+         <Button layoutX="265.0" layoutY="293.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Modify" />
+         <Button layoutX="350.0" layoutY="293.0" mnemonicParsing="false" text="Remove" />
+      </Pane>
    </children>
 </AnchorPane>

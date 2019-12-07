@@ -1,6 +1,5 @@
 package Interface;
 
-import Classes.CourseList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,11 +14,9 @@ import java.io.IOException;
 
 public class ManageData
 {
-  //header
   @FXML Button backButton;
   @FXML ChoiceBox<String> choiceBoxButton;
 
-  //panes
   @FXML Pane courses;
   @FXML Pane classrooms;
   @FXML Pane groups;
