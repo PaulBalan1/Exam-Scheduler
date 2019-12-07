@@ -17,7 +17,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button fx:id="backButton" layoutX="37.0" layoutY="12.0" minWidth="56.0" mnemonicParsing="false" onAction="#pushBackButton" text="&lt;- Back" />
+                  <Button fx:id="backButton" layoutX="37.0" layoutY="12.0" minWidth="56.0" mnemonicParsing="false" onAction="#pushBackButton" text="&lt; Back" />
                   <ChoiceBox fx:id="choiceBoxButton" accessibleText="Test" layoutX="138.0" layoutY="12.0" minWidth="150.0" onAction="#getSelectedOption" prefWidth="150.0" />
                </children>
             </AnchorPane>
@@ -111,7 +111,7 @@
                            <TableColumn prefWidth="800.0" text="Group Name" />
                         </columns>
                      </TableView>
-                     <Label layoutX="350.0" layoutY="378.0" text="Course name" textAlignment="CENTER" />
+                     <Label layoutX="350.0" layoutY="378.0" text="Group name" textAlignment="CENTER" />
                      <TextField layoutX="300.0" layoutY="402.0" />
                   </Pane>
                   <Pane fx:id="courses" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -125,9 +125,9 @@
                         <TextField fx:id="courseName" layoutX="310.0" layoutY="394.0" />
                      </children>
                   </Pane>
-                  <Button fx:id="add" layoutX="263.0" layoutY="460.0" mnemonicParsing="false" onAction="#addCourse" prefHeight="25.0" prefWidth="59.0" text="Add" />
-                  <Button fx:id="modify" layoutX="348.0" layoutY="460.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Modify" />
-                  <Button fx:id="remove" layoutX="443.0" layoutY="460.0" mnemonicParsing="false" text="Remove" />
+                  <Button fx:id="add" layoutX="263.0" layoutY="460.0" mnemonicParsing="false" onAction="#addButtonSelector" prefHeight="25.0" prefWidth="59.0" text="Add" />
+                  <Button fx:id="modify" layoutX="348.0" layoutY="460.0" mnemonicParsing="false" onAction="#modifyButtonSelector" prefHeight="25.0" prefWidth="70.0" text="Modify" />
+                  <Button fx:id="remove" layoutX="443.0" layoutY="460.0" mnemonicParsing="false" onAction="#removeButtonSelector" text="Remove" />
                </children>
             </AnchorPane>
         </items>

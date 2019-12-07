@@ -44,22 +44,24 @@ public class ManageData implements Initializable
 
 
   CourseList courseList = new CourseList();
-  ObservableList<Course> observableList = FXCollections.observableArrayList();
+  ObservableList<Course> courseObservableList = FXCollections.observableArrayList();
 
   @Override
   public void initialize(URL location, ResourceBundle resources)
   {
     choiceBoxButton.getItems().addAll("Courses", "Classrooms", "Groups", "Examiners", "Test-takers", "Exams");
     choiceBoxButton.setValue("Courses");
-    courseNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-    courseTableView.setItems(observableList);
+    initializeCourses();
+
   }
+
+  //header logic
 
   public void getSelectedOption(ActionEvent event){
      showSelectedContainer(choiceBoxButton.getValue());
   }
 
-  public void showSelectedContainer(String containerName){
+    public void showSelectedContainer(String containerName){
     if(containerName.equals("Courses")){
       setVisibilityToFalseForAll();
       courses.setVisible(true);
@@ -104,16 +106,106 @@ public class ManageData implements Initializable
     menu.show();
   }
 
+  //Add/modify/remove buttons
+
+  public void addButtonSelector(){
+    String containerName = choiceBoxButton.getValue();
+    if(containerName.equals("Courses")){
+      addCourse();
+    }else if(containerName.equals("Classrooms")){
+
+    }
+    else if(containerName.equals("Groups")){
+
+    }
+    else if(containerName.equals("Examiners")){
+
+    }
+    else if(containerName.equals("Test-takers")){
+
+    }
+    else if(containerName.equals("Exams")){
+
+    }
+  }
+
+  public void modifyButtonSelector(){
+    String containerName = choiceBoxButton.getValue();
+    if(containerName.equals("Courses")){
+
+    }else if(containerName.equals("Classrooms")){
+
+    }
+    else if(containerName.equals("Groups")){
+
+    }
+    else if(containerName.equals("Examiners")){
+
+    }
+    else if(containerName.equals("Test-takers")){
+
+    }
+    else if(containerName.equals("Exams")){
+
+    }
+  }
+
+  public void removeButtonSelector(){
+    String containerName = choiceBoxButton.getValue();
+    if(containerName.equals("Courses")){
+
+    }else if(containerName.equals("Classrooms")){
+
+    }
+    else if(containerName.equals("Groups")){
+
+    }
+    else if(containerName.equals("Examiners")){
+
+    }
+    else if(containerName.equals("Test-takers")){
+
+    }
+    else if(containerName.equals("Exams")){
+
+    }
+  }
+
+  //Course logic
+
+  public void initializeCourses(){
+    courseNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+    courseTableView.setItems(courseObservableList);
+    selectCourse();
+  }
+
   public void addCourse(){
     Course aux = new Course(courseName.getText());
     if(courseList.courseNameValidator(aux)){
       courseList.addCourse(aux);
-      observableList.add(courseList.getCourses().get(courseList.size()-1));
+      courseObservableList.add(courseList.getCourses().get(courseList.size()-1));
       courseName.clear();
     }else{
       nameAlert();
     }
   }
+
+  public void selectCourse(){
+    courseTableView.getSelectionModel().selectedItemProperty().addListener(
+        (observableValue, oldValue, newValue) -> {
+          if(courseTableView.getSelectionModel().getSelectedItem() != null)
+          {
+            TableView.TableViewSelectionModel selectionModel = courseTableView.getSelectionModel();
+            ObservableList selectedCells = selectionModel.getSelectedCells();
+            TablePosition tablePosition = (TablePosition) selectedCells.get(0);
+            Object val = tablePosition.getTableColumn().getCellData(newValue);
+            courseName.setText(val.toString());
+          }
+        });
+
+  }
+
+  //Alerts
 
   public void nameAlert(){
     Alert alert = new Alert(Alert.AlertType.ERROR);
