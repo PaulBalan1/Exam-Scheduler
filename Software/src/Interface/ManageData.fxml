@@ -123,11 +123,11 @@
                         </columns>
                      </TableView>
                      <Label layoutX="350.0" layoutY="378.0" text="Course name" textAlignment="CENTER" />
-                     <TextField layoutX="311.0" layoutY="395.0" />
+                     <TextField fx:id="courseName" layoutX="311.0" layoutY="395.0" />
                   </Pane>
-                  <Button layoutX="263.0" layoutY="460.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Add" />
-                  <Button layoutX="348.0" layoutY="460.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Modify" />
-                  <Button layoutX="443.0" layoutY="460.0" mnemonicParsing="false" text="Remove" />
+                  <Button fx:id="add" layoutX="263.0" layoutY="460.0" mnemonicParsing="false" onAction="#addCourse" prefHeight="25.0" prefWidth="59.0" text="Add" />
+                  <Button fx:id="modify" layoutX="348.0" layoutY="460.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Modify" />
+                  <Button fx:id="remove" layoutX="443.0" layoutY="460.0" mnemonicParsing="false" text="Remove" />
                </children>
             </AnchorPane>
         </items>

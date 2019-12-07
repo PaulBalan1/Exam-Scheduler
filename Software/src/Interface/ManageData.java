@@ -95,9 +95,7 @@ public class ManageData
   }
 
   public void addCourse(){
-    courseList.addCourse(courseName.getText());
-    //courseTableView.getItems().add(courseName.getText());
-
-    System.out.println(courseList.toString());
+    //courseList.addCourse(courseName.getText());
+    System.out.println(courseName.getText());
   }
 }
