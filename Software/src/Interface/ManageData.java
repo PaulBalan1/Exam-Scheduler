@@ -1,6 +1,7 @@
 package Interface;
 
 import Classes.*;
+import com.sun.javafx.image.IntPixelGetter;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -209,6 +210,15 @@ public class ManageData implements Initializable
   }
 
   public void addClassroom(){
+    try{
+      if(Integer.parseInt(capacity.getText())<0 || Integer.parseInt(capacity.getText())>200){
+        classroomAlert();
+        return;
+      }
+    }catch (NumberFormatException e){
+      classroomAlert();
+      return;
+    }
     Classroom aux = new Classroom(classroomName.getText(), Integer.parseInt(capacity.getText()), HDMI.isSelected());
     if(classroomList.classroomValidator(aux)){
       classroomList.addClassroom(aux);
@@ -241,6 +251,15 @@ public class ManageData implements Initializable
   }
 
   public void modifyClassroom(){
+    try{
+      if(Integer.parseInt(capacity.getText())<0 || Integer.parseInt(capacity.getText())>200){
+        classroomAlert();
+        return;
+      }
+    }catch (NumberFormatException e){
+      classroomAlert();
+      return;
+    }
     String auxName = classroomName.getText();
     int index = 0;
     for (Classroom classroom: classroomList.getClassrooms())
@@ -361,7 +380,7 @@ public class ManageData implements Initializable
       groupObservableList.add(aux);
       groupName.clear();
     }else{
-      nameAlert();
+      classroomAlert();
     }
   }
 
