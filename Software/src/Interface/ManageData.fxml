@@ -23,21 +23,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Pane fx:id="examiners" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TableView prefHeight="334.0" prefWidth="800.0">
-                          <columns>
-                            <TableColumn prefWidth="400.0" text="Name" />
-                            <TableColumn prefWidth="400.0" text="Course" />
-                          </columns>
-                        </TableView>
-                        <Label layoutX="264.0" layoutY="382.0" prefHeight="17.0" prefWidth="88.0" text="Examiner Name" />
-                        <Label layoutX="455.0" layoutY="382.0" text="Course" />
-                        <TextField layoutX="226.0" layoutY="399.0" />
-                        <TextField layoutX="399.0" layoutY="399.0" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="testTakers" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane fx:id="testTakers" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView prefHeight="334.0" prefWidth="800.0">
                           <columns>
@@ -50,11 +36,25 @@
                         <TextField layoutX="96.0" layoutY="394.0" prefHeight="25.0" prefWidth="125.0" />
                         <TextField layoutX="260.0" layoutY="394.0" prefWidth="125.0" />
                         <TextField layoutX="425.0" layoutY="394.0" prefWidth="125.0" />
-                        <TextField layoutX="578.0" layoutY="394.0" prefWidth="125.0" />
                         <Label layoutX="143.0" layoutY="377.0" text="Name" />
                         <Label layoutX="284.0" layoutY="377.0" text="Study Number" />
                         <Label layoutX="458.0" layoutY="377.0" text="Nationality" />
                         <Label layoutX="624.0" layoutY="377.0" text="Group" />
+                        <ChoiceBox layoutX="578.0" layoutY="394.0" prefWidth="125.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="examiners" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView prefHeight="334.0" prefWidth="800.0">
+                          <columns>
+                            <TableColumn prefWidth="400.0" text="Name" />
+                            <TableColumn prefWidth="400.0" text="Course" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="264.0" layoutY="382.0" prefHeight="17.0" prefWidth="88.0" text="Examiner Name" />
+                        <Label layoutX="455.0" layoutY="382.0" text="Course" />
+                        <TextField layoutX="226.0" layoutY="399.0" />
+                        <ChoiceBox layoutX="398.0" layoutY="399.0" prefWidth="150.0" />
                      </children>
                   </Pane>
                   <Pane fx:id="classrooms" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -73,6 +73,24 @@
                         <Label layoutX="162.0" layoutY="376.0" text="Classroom Name" textAlignment="CENTER" />
                      </children>
                   </Pane>
+                  <Pane fx:id="courses" prefHeight="542.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView fx:id="courseTableView" prefHeight="334.0" prefWidth="798.0">
+                          <columns>
+                            <TableColumn fx:id="courseNameCol" prefWidth="797.1999939084053" text="Course Name" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="349.0" layoutY="377.0" text="Course name" textAlignment="CENTER" />
+                        <TextField fx:id="courseName" layoutX="310.0" layoutY="394.0" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button fx:id="add" layoutX="281.0" layoutY="503.0" mnemonicParsing="false" onAction="#addButtonSelector" prefHeight="25.0" prefWidth="59.0" text="Add" />
+                        <Button fx:id="modify" layoutX="364.0" layoutY="503.0" mnemonicParsing="false" onAction="#modifyButtonSelector" prefHeight="25.0" prefWidth="70.0" text="Modify" />
+                        <Button fx:id="remove" layoutX="458.0" layoutY="503.0" mnemonicParsing="false" onAction="#removeButtonSelector" text="Remove" />
+                     </children>
+                  </Pane>
                   <Pane fx:id="exams" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView prefHeight="334.0" prefWidth="800.0">
@@ -87,22 +105,22 @@
                             <TableColumn minWidth="51.199951171875" prefWidth="62.0" text="Classroom" />
                           </columns>
                         </TableView>
-                        <TextField layoutY="392.0" prefWidth="100.0" />
-                        <TextField layoutX="100.0" layoutY="392.0" prefWidth="93.0" />
-                        <TextField layoutX="193.0" layoutY="392.0" prefWidth="94.0" />
-                        <TextField layoutX="287.0" layoutY="392.0" prefWidth="130.0" />
-                        <TextField layoutX="417.0" layoutY="392.0" prefWidth="130.0" />
-                        <TextField layoutX="547.0" layoutY="392.0" prefWidth="130.0" />
-                        <TextField layoutX="677.0" layoutY="392.0" prefWidth="55.0" />
-                        <TextField layoutX="732.0" layoutY="392.0" prefWidth="62.0" />
-                        <Label layoutX="36.0" layoutY="375.0" text="Name" />
-                        <Label layoutX="134.0" layoutY="375.0" text="Date" />
-                        <Label layoutX="221.0" layoutY="375.0" text="Course" />
-                        <Label layoutX="328.0" layoutY="375.0" text="Examiner" />
-                        <Label layoutX="448.0" layoutY="375.0" text="Co-examiner" />
-                        <Label layoutX="585.0" layoutY="375.0" text="Test-taker" />
-                        <Label layoutX="691.0" layoutY="375.0" text="Type" />
-                        <Label layoutX="735.0" layoutY="375.0" text="Classroom" />
+                        <TextField layoutX="133.0" layoutY="392.0" prefWidth="100.0" />
+                        <TextField layoutX="289.0" layoutY="392.0" prefWidth="93.0" />
+                        <TextField layoutX="133.0" layoutY="457.0" prefWidth="100.0" />
+                        <TextField layoutX="425.0" layoutY="457.0" prefWidth="94.0" />
+                        <Label layoutX="167.0" layoutY="375.0" text="Name" />
+                        <Label layoutX="323.0" layoutY="375.0" text="Date" />
+                        <Label layoutX="454.0" layoutY="375.0" text="Course" />
+                        <Label layoutX="598.0" layoutY="375.0" text="Examiner" />
+                        <Label layoutX="149.0" layoutY="440.0" text="Co-examiner" />
+                        <Label layoutX="307.0" layoutY="440.0" text="Test-taker" />
+                        <Label layoutX="459.0" layoutY="440.0" text="Type" />
+                        <Label layoutX="594.0" layoutY="440.0" text="Classroom" />
+                        <ChoiceBox layoutX="425.0" layoutY="392.0" prefWidth="94.0" />
+                        <ChoiceBox layoutX="557.0" layoutY="392.0" prefWidth="130.0" />
+                        <ChoiceBox layoutX="287.0" layoutY="457.0" prefWidth="93.0" />
+                        <ChoiceBox layoutX="557.0" layoutY="457.0" prefWidth="130.0" />
                      </children>
                   </Pane>
                   <Pane fx:id="groups" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -111,23 +129,9 @@
                            <TableColumn prefWidth="800.0" text="Group Name" />
                         </columns>
                      </TableView>
-                     <Label layoutX="350.0" layoutY="378.0" text="Group name" textAlignment="CENTER" />
-                     <TextField layoutX="300.0" layoutY="402.0" />
+                     <Label layoutX="366.0" layoutY="378.0" text="Group name" textAlignment="CENTER" />
+                     <TextField layoutX="325.0" layoutY="395.0" />
                   </Pane>
-                  <Pane fx:id="courses" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TableView fx:id="courseTableView" prefHeight="334.0" prefWidth="798.0">
-                          <columns>
-                            <TableColumn fx:id="courseNameCol" prefWidth="797.1999939084053" text="Course Name" />
-                          </columns>
-                        </TableView>
-                        <Label layoutX="349.0" layoutY="377.0" text="Course name" textAlignment="CENTER" />
-                        <TextField fx:id="courseName" layoutX="310.0" layoutY="394.0" />
-                     </children>
-                  </Pane>
-                  <Button fx:id="add" layoutX="263.0" layoutY="460.0" mnemonicParsing="false" onAction="#addButtonSelector" prefHeight="25.0" prefWidth="59.0" text="Add" />
-                  <Button fx:id="modify" layoutX="348.0" layoutY="460.0" mnemonicParsing="false" onAction="#modifyButtonSelector" prefHeight="25.0" prefWidth="70.0" text="Modify" />
-                  <Button fx:id="remove" layoutX="443.0" layoutY="460.0" mnemonicParsing="false" onAction="#removeButtonSelector" text="Remove" />
                </children>
             </AnchorPane>
         </items>
