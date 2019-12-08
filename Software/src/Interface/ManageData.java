@@ -43,6 +43,7 @@ public class ManageData implements Initializable
   @FXML TextField courseName;
   @FXML TableView courseTableView;
   @FXML TableColumn courseNameCol;
+  String lastCourseSelectedName;
 
 
   CourseList courseList = new CourseList();
@@ -134,7 +135,7 @@ public class ManageData implements Initializable
   public void modifyButtonSelector(){
     String containerName = choiceBoxButton.getValue();
     if(containerName.equals("Courses")){
-
+      modifyCourse();
     }else if(containerName.equals("Classrooms")){
 
     }
@@ -192,18 +193,34 @@ public class ManageData implements Initializable
     }
   }
 
-  public void selectCourse(){                                                 //remove doesn't work
+  public void selectCourse(){
     courseTableView.getSelectionModel().setCellSelectionEnabled(true);
     ObservableList selectedCells = courseTableView.getSelectionModel().getSelectedCells();
 
-    selectedCells.addListener(new ListChangeListener() {
+      selectedCells.addListener(new ListChangeListener() {
       @Override
       public void onChanged(Change c) {
         TablePosition tablePosition = (TablePosition) selectedCells.get(0);
         Object val = tablePosition.getTableColumn().getCellData(tablePosition.getRow());
         courseName.setText(val.toString());
+        lastCourseSelectedName = courseName.getText();
       }
     });
+  }
+
+  public void modifyCourse(){
+    String auxName = courseName.getText();
+    int index = 0;
+    for (Course course: courseList.getCourses())
+    {
+      if(course.getName().equals(lastCourseSelectedName)){
+        course.setName(auxName);
+        courseObservableList.get(index).setName(auxName);
+        courseTableView.refresh();
+        break;
+      }
+      index++;
+    }
   }
 
   public void removeCourse(){
@@ -213,7 +230,6 @@ public class ManageData implements Initializable
         courseObservableList.remove(course);
         courseList.removeCourse(course);
         courseName.clear();
-        courseTableView.getSelectionModel().clearSelection(0);
         return;
       }
     }
