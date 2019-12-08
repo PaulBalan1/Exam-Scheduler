@@ -99,13 +99,13 @@
                      </children>
                   </Pane>
                   <Pane fx:id="groups" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <TableView prefHeight="334.0" prefWidth="800.0">
+                     <TableView fx:id="groupTableView" prefHeight="334.0" prefWidth="800.0">
                         <columns>
                            <TableColumn fx:id="groupNameCol" prefWidth="800.0" text="Group Name" />
                         </columns>
                      </TableView>
                      <Label layoutX="366.0" layoutY="378.0" text="Group name" textAlignment="CENTER" />
-                     <TextField layoutX="325.0" layoutY="395.0" />
+                     <TextField fx:id="groupName" layoutX="325.0" layoutY="395.0" />
                   </Pane>
                   <Pane fx:id="examiners" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
