@@ -37,7 +37,7 @@ public class Classroom
     return capacity;
   }
 
-  public boolean hasProjector(){
+  public boolean getHasProjector(){
     return hasProjector;
   }
 

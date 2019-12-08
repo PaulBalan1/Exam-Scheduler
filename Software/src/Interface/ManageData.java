@@ -1,9 +1,7 @@
 package Interface;
 
-import Classes.Course;
-import Classes.CourseList;
-import Classes.Group;
-import Classes.GroupList;
+import Classes.*;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -61,6 +59,17 @@ public class ManageData implements Initializable
   GroupList groupList = new GroupList();
   ObservableList<Group> groupObservableList = FXCollections.observableArrayList();
 
+  //classrooms
+  @FXML TextField classroomName;
+  @FXML TextField capacity;
+  @FXML CheckBox HDMI;
+  @FXML TableView classroomTableView;
+  @FXML TableColumn classroomNameCol;
+  @FXML TableColumn classroomCapacityCol;
+  @FXML TableColumn classroomHDMICol;
+  String lastClassroomSelectedName;
+  ClassroomList classroomList = new ClassroomList();
+  ObservableList<Classroom> classroomObservableList = FXCollections.observableArrayList();
 
   @Override
   public void initialize(URL location, ResourceBundle resources)
@@ -69,7 +78,7 @@ public class ManageData implements Initializable
     choiceBoxButton.setValue("Courses");
     initializeCourses();
     initializeGroups();
-
+    initializeClassrooms();
   }
 
   //header logic
@@ -131,7 +140,7 @@ public class ManageData implements Initializable
     if(containerName.equals("Courses")){
       addCourse();
     }else if(containerName.equals("Classrooms")){
-
+      addClassroom();
     }
     else if(containerName.equals("Groups")){
       addGroup();
@@ -152,7 +161,7 @@ public class ManageData implements Initializable
     if(containerName.equals("Courses")){
       modifyCourse();
     }else if(containerName.equals("Classrooms")){
-
+      modifyClassroom();
     }
     else if(containerName.equals("Groups")){
       modifyGroup();
@@ -173,7 +182,7 @@ public class ManageData implements Initializable
     if(containerName.equals("Courses")){
       removeCourse();
     }else if(containerName.equals("Classrooms")){
-
+      removeClassroom();
     }
     else if(containerName.equals("Groups")){
       removeGroup();
@@ -188,6 +197,85 @@ public class ManageData implements Initializable
 
     }
   }
+
+  //Classroom logic
+
+  public void initializeClassrooms(){
+    classroomNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+    classroomCapacityCol.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+    classroomHDMICol.setCellValueFactory(new PropertyValueFactory<>("hasProjector"));
+    classroomTableView.setItems(classroomObservableList);
+    selectClassroom();
+  }
+
+  public void addClassroom(){
+    Classroom aux = new Classroom(classroomName.getText(), Integer.parseInt(capacity.getText()), HDMI.isSelected());
+    if(classroomList.classroomValidator(aux)){
+      classroomList.addClassroom(aux);
+      classroomObservableList.add(aux);
+      classroomName.clear();
+      capacity.clear();
+      HDMI.setSelected(false);
+    }else{
+      classroomAlert();
+    }
+  }
+
+  public void selectClassroom(){
+    classroomTableView.getSelectionModel().setCellSelectionEnabled(true);
+    ObservableList selectedCells = classroomTableView.getSelectionModel().getSelectedItems();
+
+    selectedCells.addListener(new ListChangeListener() {
+      @Override
+      public void onChanged(Change c) {
+        if(selectedCells.size()>0)
+        {
+          Classroom aux = (Classroom)selectedCells.get(0);
+          classroomName.setText(aux.getName());
+          capacity.setText(""+aux.getCapacity());
+          HDMI.setSelected(aux.getHasProjector());
+          lastClassroomSelectedName = classroomName.getText();
+        }
+      }
+    });
+  }
+
+  public void modifyClassroom(){
+    String auxName = classroomName.getText();
+    int index = 0;
+    for (Classroom classroom: classroomList.getClassrooms())
+    {
+      if(classroom.getName().equals(lastClassroomSelectedName)){
+        classroom.setName(auxName);
+        classroom.setCapacity(Integer.parseInt(capacity.getText()));
+        classroom.setHasProjector(HDMI.isSelected());
+        classroomObservableList.get(index).setName(auxName);
+        classroomObservableList.get(index).setCapacity(Integer.parseInt(capacity.getText()));
+        classroomObservableList.get(index).setHasProjector(HDMI.isSelected());
+        lastClassroomSelectedName = classroomName.getText();
+        classroomTableView.refresh();
+        break;
+      }
+      index++;
+    }
+  }
+
+
+  public void removeClassroom(){
+    for (Classroom classroom: classroomList.getClassrooms())
+    {
+      int index = 0;
+      if(classroom.getName().equals(classroomName.getText())){
+        classroomObservableList.remove(index);
+        classroomList.removeClassroom(classroom);
+        classroomName.clear();
+        classroomTableView.refresh();
+        return;
+      }
+      index++;
+    }
+  }
+
 
   //Course logic
 
@@ -335,4 +423,10 @@ public class ManageData implements Initializable
     alert.showAndWait();
   }
 
+  public void classroomAlert(){
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Invalid classroom input");
+    alert.setHeaderText("Classroom with this name already exists or capacity is invalid!");
+    alert.showAndWait();
+  }
 }

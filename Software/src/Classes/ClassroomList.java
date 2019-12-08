@@ -10,14 +10,19 @@ public class ClassroomList
     classrooms = new ArrayList<Classroom>();
   }
 
-  public void addClassroom(Classroom classroom){
+  public boolean classroomValidator(Classroom classroom){
+    if(classroom.getName().equals("")) return false;
+    if(classroom.getCapacity()<1 && classroom.getCapacity()>200) return false;
     for(Classroom aux: classrooms){
       if(aux.getName().equals(classroom.getName()))
       {
-        System.out.println("Classes.Classroom with same name already exists!");     //Add warning on enter
-        return;
+        return false;
       }
     }
+    return true;
+  }
+
+  public void addClassroom(Classroom classroom){
     classrooms.add(classroom);
   }
 
@@ -57,11 +62,16 @@ public class ClassroomList
     return aux;
   }
 
+  public ArrayList<Classroom> getClassrooms()
+  {
+    return classrooms;
+  }
+
   public ArrayList<Classroom> getClassroomsWithProjectors(){
     ArrayList<Classroom> aux = new ArrayList<Classroom>();
     for (Classroom classroom: classrooms)
     {
-      if(classroom.hasProjector()){
+      if(classroom.getHasProjector()){
         aux.add(classroom);
       }
     }

@@ -52,17 +52,17 @@
                   </Pane>
                   <Pane fx:id="classrooms" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView prefHeight="334.0" prefWidth="798.0">
+                        <TableView fx:id="classroomTableView" prefHeight="334.0" prefWidth="798.0">
                            <columns>
-                              <TableColumn prefWidth="266.0" text="Classroom Name" />
-                              <TableColumn prefWidth="266.0" text="Capacity" />
-                              <TableColumn prefWidth="267.0" text="HDMI/VGA" />
+                              <TableColumn fx:id="classroomNameCol" prefWidth="266.0" text="Classroom Name" />
+                              <TableColumn fx:id="classroomCapacityCol" prefWidth="266.0" text="Capacity" />
+                              <TableColumn fx:id="classroomHDMICol" prefWidth="267.0" text="HDMI/VGA" />
                            </columns>
                         </TableView>
-                        <TextField layoutX="133.0" layoutY="392.0" />
-                        <CheckBox layoutX="517.0" layoutY="396.0" mnemonicParsing="false" text="HDMI / VGA" />
+                        <TextField fx:id="classroomName" layoutX="133.0" layoutY="392.0" />
+                        <CheckBox fx:id="HDMI" layoutX="517.0" layoutY="396.0" mnemonicParsing="false" text="HDMI / VGA" />
                         <Label layoutX="361.0" layoutY="376.0" text="Capacity" textAlignment="CENTER" />
-                        <TextField layoutX="349.0" layoutY="392.0" prefHeight="25.0" prefWidth="70.0" />
+                        <TextField fx:id="capacity" layoutX="349.0" layoutY="392.0" prefHeight="25.0" prefWidth="70.0" />
                         <Label layoutX="162.0" layoutY="376.0" text="Classroom Name" textAlignment="CENTER" />
                      </children>
                   </Pane>
