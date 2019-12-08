@@ -28,6 +28,11 @@ public class ManageData implements Initializable
   @FXML Button backButton;
   @FXML ChoiceBox<String> choiceBoxButton;
 
+  //dropdowns
+  @FXML ChoiceBox<String> choiceBoxExaminer;
+  @FXML ChoiceBox<String> choiceBoxCourseExam;
+  @FXML ChoiceBox<String> choiceBoxGroupTestTaker;
+
   //Panes
   @FXML Pane courses;
   @FXML Pane classrooms;
@@ -197,6 +202,8 @@ public class ManageData implements Initializable
     if(courseList.courseNameValidator(aux)){
       courseList.addCourse(aux);
       courseObservableList.add(courseList.getCourses().get(courseList.size()-1));
+      choiceBoxExaminer.getItems().add(aux.toString());
+      choiceBoxCourseExam.getItems().add(aux.toString());
       courseName.clear();
     }else{
       nameAlert();
@@ -243,6 +250,8 @@ public class ManageData implements Initializable
         courseObservableList.remove(course);
         courseList.removeCourse(course);
         courseName.clear();
+        choiceBoxExaminer.getItems().remove(course.toString());
+        choiceBoxCourseExam.getItems().remove(course.toString());
         return;
       }
     }
@@ -259,6 +268,7 @@ public class ManageData implements Initializable
   public void addGroup(){
     Group aux = new Group(groupName.getText());
     if(groupList.groupNameValidator(aux)){
+      choiceBoxGroupTestTaker.getItems().add(aux.toString());
       groupList.addGroup(groupName.getText());
       groupObservableList.add(aux);
       groupName.clear();
@@ -305,6 +315,7 @@ public class ManageData implements Initializable
     for (Group group: groupList.getGroups())
     {
       if(group.getGroupName().equals(groupName.getText())){
+        choiceBoxGroupTestTaker.getItems().remove(group.toString());
         groupObservableList.remove(index);
         groupList.removeGroup(group);
         groupName.clear();
