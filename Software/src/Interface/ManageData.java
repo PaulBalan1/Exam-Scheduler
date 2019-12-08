@@ -2,7 +2,9 @@ package Interface;
 
 import Classes.Course;
 import Classes.CourseList;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -153,7 +155,7 @@ public class ManageData implements Initializable
   public void removeButtonSelector(){
     String containerName = choiceBoxButton.getValue();
     if(containerName.equals("Courses")){
-
+      removeCourse();
     }else if(containerName.equals("Classrooms")){
 
     }
@@ -190,18 +192,31 @@ public class ManageData implements Initializable
     }
   }
 
-  public void selectCourse(){
-    courseTableView.getSelectionModel().selectedItemProperty().addListener(
-        (observableValue, oldValue, newValue) -> {
-          if(courseTableView.getSelectionModel().getSelectedItem() != null)
-          {
-            TableView.TableViewSelectionModel selectionModel = courseTableView.getSelectionModel();
-            ObservableList selectedCells = selectionModel.getSelectedCells();
-            TablePosition tablePosition = (TablePosition) selectedCells.get(0);
-            Object val = tablePosition.getTableColumn().getCellData(newValue);
-            courseName.setText(val.toString());
-          }
-        });
+  public void selectCourse(){                                                 //remove doesn't work
+    courseTableView.getSelectionModel().setCellSelectionEnabled(true);
+    ObservableList selectedCells = courseTableView.getSelectionModel().getSelectedCells();
+
+    selectedCells.addListener(new ListChangeListener() {
+      @Override
+      public void onChanged(Change c) {
+        TablePosition tablePosition = (TablePosition) selectedCells.get(0);
+        Object val = tablePosition.getTableColumn().getCellData(tablePosition.getRow());
+        courseName.setText(val.toString());
+      }
+    });
+  }
+
+  public void removeCourse(){
+    for (Course course: courseList.getCourses())
+    {
+      if(course.getName().equals(courseName.getText())){
+        courseObservableList.remove(course);
+        courseList.removeCourse(course);
+        courseName.clear();
+        courseTableView.getSelectionModel().clearSelection(0);
+        return;
+      }
+    }
 
   }
 
