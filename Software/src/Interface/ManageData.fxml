@@ -23,7 +23,14 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Pane fx:id="testTakers" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane layoutX="-2.0" prefHeight="334.0" prefWidth="800.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button fx:id="add" layoutX="281.0" layoutY="503.0" mnemonicParsing="false" onAction="#addButtonSelector" prefHeight="25.0" prefWidth="59.0" text="Add" />
+                        <Button fx:id="modify" layoutX="364.0" layoutY="503.0" mnemonicParsing="false" onAction="#modifyButtonSelector" prefHeight="25.0" prefWidth="70.0" text="Modify" />
+                        <Button fx:id="remove" layoutX="458.0" layoutY="503.0" mnemonicParsing="false" onAction="#removeButtonSelector" text="Remove" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="testTakers" layoutX="-2.0" prefHeight="334.0" prefWidth="800.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView prefHeight="334.0" prefWidth="800.0">
                           <columns>
@@ -43,20 +50,6 @@
                         <ChoiceBox layoutX="578.0" layoutY="394.0" prefWidth="125.0" />
                      </children>
                   </Pane>
-                  <Pane fx:id="examiners" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TableView prefHeight="334.0" prefWidth="800.0">
-                          <columns>
-                            <TableColumn prefWidth="400.0" text="Name" />
-                            <TableColumn prefWidth="400.0" text="Course" />
-                          </columns>
-                        </TableView>
-                        <Label layoutX="264.0" layoutY="382.0" prefHeight="17.0" prefWidth="88.0" text="Examiner Name" />
-                        <Label layoutX="455.0" layoutY="382.0" text="Course" />
-                        <TextField layoutX="226.0" layoutY="399.0" />
-                        <ChoiceBox layoutX="398.0" layoutY="399.0" prefWidth="150.0" />
-                     </children>
-                  </Pane>
                   <Pane fx:id="classrooms" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView prefHeight="334.0" prefWidth="798.0">
@@ -73,25 +66,7 @@
                         <Label layoutX="162.0" layoutY="376.0" text="Classroom Name" textAlignment="CENTER" />
                      </children>
                   </Pane>
-                  <Pane fx:id="courses" prefHeight="542.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TableView fx:id="courseTableView" prefHeight="334.0" prefWidth="798.0">
-                          <columns>
-                            <TableColumn fx:id="courseNameCol" prefWidth="797.1999939084053" text="Course Name" />
-                          </columns>
-                        </TableView>
-                        <Label layoutX="349.0" layoutY="377.0" text="Course name" textAlignment="CENTER" />
-                        <TextField fx:id="courseName" layoutX="310.0" layoutY="394.0" />
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Button fx:id="add" layoutX="281.0" layoutY="503.0" mnemonicParsing="false" onAction="#addButtonSelector" prefHeight="25.0" prefWidth="59.0" text="Add" />
-                        <Button fx:id="modify" layoutX="364.0" layoutY="503.0" mnemonicParsing="false" onAction="#modifyButtonSelector" prefHeight="25.0" prefWidth="70.0" text="Modify" />
-                        <Button fx:id="remove" layoutX="458.0" layoutY="503.0" mnemonicParsing="false" onAction="#removeButtonSelector" text="Remove" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="exams" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane fx:id="exams" layoutX="-2.0" prefHeight="334.0" prefWidth="800.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView prefHeight="334.0" prefWidth="800.0">
                           <columns>
@@ -123,7 +98,7 @@
                         <ChoiceBox layoutX="557.0" layoutY="457.0" prefWidth="130.0" />
                      </children>
                   </Pane>
-                  <Pane fx:id="groups" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane fx:id="groups" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <TableView prefHeight="334.0" prefWidth="800.0">
                         <columns>
                            <TableColumn prefWidth="800.0" text="Group Name" />
@@ -131,6 +106,31 @@
                      </TableView>
                      <Label layoutX="366.0" layoutY="378.0" text="Group name" textAlignment="CENTER" />
                      <TextField layoutX="325.0" layoutY="395.0" />
+                  </Pane>
+                  <Pane fx:id="examiners" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView prefHeight="334.0" prefWidth="800.0">
+                          <columns>
+                            <TableColumn prefWidth="400.0" text="Name" />
+                            <TableColumn prefWidth="400.0" text="Course" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="264.0" layoutY="382.0" prefHeight="17.0" prefWidth="88.0" text="Examiner Name" />
+                        <Label layoutX="455.0" layoutY="382.0" text="Course" />
+                        <TextField layoutX="226.0" layoutY="399.0" />
+                        <ChoiceBox layoutX="398.0" layoutY="399.0" prefWidth="150.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="courses" layoutX="-2.0" prefHeight="334.0" prefWidth="800.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView fx:id="courseTableView" prefHeight="334.0" prefWidth="798.0">
+                          <columns>
+                            <TableColumn fx:id="courseNameCol" prefWidth="797.1999939084053" text="Course Name" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="349.0" layoutY="377.0" text="Course name" textAlignment="CENTER" />
+                        <TextField fx:id="courseName" layoutX="310.0" layoutY="394.0" />
+                     </children>
                   </Pane>
                </children>
             </AnchorPane>
