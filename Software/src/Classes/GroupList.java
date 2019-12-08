@@ -26,6 +26,21 @@ public class GroupList
     groups.add(aux);
   }
 
+  public boolean groupNameValidator(Group group){
+    if(group.getGroupName().equals("")) return false;
+    for(Group aux : groups){
+      if(aux.getGroupName().equals(group.getGroupName()))
+      {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public void removeGroup(Group group){
+    groups.remove(group);
+  }
+
   public void removeGroup(String groupName)
   {
     for (Group group : groups)
@@ -48,6 +63,11 @@ public class GroupList
     {
       System.out.println("Index out of bounds. Enter valid index.");
     }
+  }
+
+  public ArrayList<Group> getGroups()
+  {
+    return groups;
   }
 
   public Group getGroup(int index)

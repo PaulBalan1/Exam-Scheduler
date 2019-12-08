@@ -2,7 +2,8 @@ package Interface;
 
 import Classes.Course;
 import Classes.CourseList;
-import javafx.application.Platform;
+import Classes.Group;
+import Classes.GroupList;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -44,10 +45,17 @@ public class ManageData implements Initializable
   @FXML TableView courseTableView;
   @FXML TableColumn courseNameCol;
   String lastCourseSelectedName;
-
-
   CourseList courseList = new CourseList();
   ObservableList<Course> courseObservableList = FXCollections.observableArrayList();
+
+  //groups
+  @FXML TextField groupName;
+  @FXML TableView groupTableView;
+  @FXML TableColumn groupNameCol;
+  String lastGroupSelectedName;
+  GroupList groupList = new GroupList();
+  ObservableList<Group> groupObservableList = FXCollections.observableArrayList();
+
 
   @Override
   public void initialize(URL location, ResourceBundle resources)
@@ -55,6 +63,7 @@ public class ManageData implements Initializable
     choiceBoxButton.getItems().addAll("Courses", "Classrooms", "Groups", "Examiners", "Test-takers", "Exams");
     choiceBoxButton.setValue("Courses");
     initializeCourses();
+    initializeGroups();
 
   }
 
@@ -111,6 +120,7 @@ public class ManageData implements Initializable
 
   //Add/modify/remove buttons
 
+
   public void addButtonSelector(){
     String containerName = choiceBoxButton.getValue();
     if(containerName.equals("Courses")){
@@ -119,7 +129,7 @@ public class ManageData implements Initializable
 
     }
     else if(containerName.equals("Groups")){
-
+      addGroup();
     }
     else if(containerName.equals("Examiners")){
 
@@ -140,7 +150,7 @@ public class ManageData implements Initializable
 
     }
     else if(containerName.equals("Groups")){
-
+      modifyGroup();
     }
     else if(containerName.equals("Examiners")){
 
@@ -161,7 +171,7 @@ public class ManageData implements Initializable
 
     }
     else if(containerName.equals("Groups")){
-
+      removeGroup();
     }
     else if(containerName.equals("Examiners")){
 
@@ -200,10 +210,13 @@ public class ManageData implements Initializable
       selectedCells.addListener(new ListChangeListener() {
       @Override
       public void onChanged(Change c) {
-        TablePosition tablePosition = (TablePosition) selectedCells.get(0);
-        Object val = tablePosition.getTableColumn().getCellData(tablePosition.getRow());
-        courseName.setText(val.toString());
-        lastCourseSelectedName = courseName.getText();
+        if(selectedCells.size()>0)
+        {
+          TablePosition tablePosition = (TablePosition) selectedCells.get(0);
+          Object val = tablePosition.getTableColumn().getCellData(tablePosition.getRow());
+          courseName.setText(val.toString());
+          lastCourseSelectedName = courseName.getText();
+        }
       }
     });
   }
@@ -233,7 +246,73 @@ public class ManageData implements Initializable
         return;
       }
     }
+  }
 
+  //Groups
+
+  public void initializeGroups(){
+    groupNameCol.setCellValueFactory(new PropertyValueFactory<>("groupName"));
+    groupTableView.setItems(groupObservableList);
+    selectGroup();
+  }
+
+  public void addGroup(){
+    Group aux = new Group(groupName.getText());
+    if(groupList.groupNameValidator(aux)){
+      groupList.addGroup(groupName.getText());
+      groupObservableList.add(aux);
+      groupName.clear();
+    }else{
+      nameAlert();
+    }
+  }
+
+  public void selectGroup(){
+    groupTableView.getSelectionModel().setCellSelectionEnabled(true);
+    ObservableList selectedCells = groupTableView.getSelectionModel().getSelectedCells();
+
+    selectedCells.addListener(new ListChangeListener() {
+      @Override
+      public void onChanged(Change c) {
+        if(selectedCells.size()>0)
+        {
+          TablePosition tablePosition = (TablePosition) selectedCells.get(0);
+          Object val = tablePosition.getTableColumn().getCellData(tablePosition.getRow());
+          groupName.setText(val.toString());
+          lastGroupSelectedName = groupName.getText();
+        }
+      }
+    });
+  }
+
+  public void modifyGroup(){
+    String auxName = groupName.getText();
+    int index = 0;
+    for (Group group: groupList.getGroups())
+    {
+      if(group.getGroupName().equals(lastGroupSelectedName)){
+        group.setGroupName(auxName);
+        groupObservableList.get(index).setGroupName(auxName);
+        groupTableView.refresh();
+        break;
+      }
+      index++;
+    }
+  }
+
+  public void removeGroup(){
+    int index = 0;
+    for (Group group: groupList.getGroups())
+    {
+      if(group.getGroupName().equals(groupName.getText())){
+        groupObservableList.remove(index);
+        groupList.removeGroup(group);
+        groupName.clear();
+        groupTableView.refresh();
+        break;
+      }
+      index++;
+    }
   }
 
   //Alerts

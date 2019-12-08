@@ -106,13 +106,13 @@
                      </children>
                   </Pane>
                   <Pane fx:id="groups" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <TableView prefHeight="334.0" prefWidth="800.0">
+                     <TableView fx:id="groupTableView" prefHeight="334.0" prefWidth="800.0">
                         <columns>
-                           <TableColumn prefWidth="800.0" text="Group Name" />
+                           <TableColumn fx:id="groupNameCol" prefWidth="800.0" text="Group Name" />
                         </columns>
                      </TableView>
-                     <Label layoutX="350.0" layoutY="378.0" text="Group name" textAlignment="CENTER" />
-                     <TextField layoutX="300.0" layoutY="402.0" />
+                     <Label layoutX="349.0" layoutY="377.0" text="Group name" textAlignment="CENTER" />
+                     <TextField fx:id="groupName" layoutX="310.0" layoutY="394.0" />
                   </Pane>
                   <Pane fx:id="courses" prefHeight="542.4" prefWidth="798.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
