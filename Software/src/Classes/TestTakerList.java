@@ -8,9 +8,28 @@ public class TestTakerList
   private ArrayList<TestTaker> testTakers = null;
   static ArrayList<String> studyNumbers = new ArrayList<String>();    // Storing so we can check for duplicates, static because we want to access it outside
 
+  public ArrayList<TestTaker> getTestTakers()
+  {
+    return testTakers;
+  }
 
   public TestTakerList(){
     testTakers = new ArrayList<TestTaker>();
+  }
+
+  public boolean testTakerValidator(TestTaker testTaker){
+    String n = testTaker.getName();
+    String sn = testTaker.getStudyNumber();
+    if(testTaker.getGroup()==null) return false;
+    if(n.equals("")) return false;
+    if(n.matches(".*\\d.*")) return false;
+    for(TestTaker aux: testTakers){
+      if(aux.getStudyNumber().equals(testTaker.getStudyNumber()))
+      {
+        return false;
+      }
+    }
+    return true;
   }
 
   public void addTestTaker(TestTaker testTaker){
@@ -55,6 +74,10 @@ public class TestTakerList
       if (testTaker.getGroup().toString().equals(groupName)) aux.add(testTaker);
     }
     return aux;
+  }
+
+  public void removeTestTaker(TestTaker testTaker){
+    testTakers.remove(testTaker);
   }
 
   public String toString(){

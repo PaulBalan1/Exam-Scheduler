@@ -17,6 +17,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+
+import javax.print.attribute.standard.JobKOctets;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,8 +31,9 @@ public class ManageData implements Initializable
 
   //dropdowns
   @FXML ChoiceBox<Object> choiceBoxCourseExam;
-  @FXML ChoiceBox<Object> choiceBoxGroupTestTaker;
+      //moved below
   @FXML ChoiceBox<Object> choiceBoxClassroomExam;
+      //examiner choice box moved to "//examiners" section below
   @FXML ChoiceBox<Object> choiceBoxGroupExam;
 
   //Panes
@@ -83,6 +86,20 @@ public class ManageData implements Initializable
   ExaminerList examinerList = new ExaminerList();
   ObservableList<Examiner> examinerObservableList = FXCollections.observableArrayList();
 
+  //test-takers
+  @FXML TextField testTakerName;
+  @FXML TextField studyNumber;
+  @FXML TextField nationality;
+  @FXML ChoiceBox<Object> choiceBoxGroupTestTaker;
+  @FXML TableView testTakerTableView;
+  @FXML TableColumn testTakerNameCol;
+  @FXML TableColumn studyNumberCol;
+  @FXML TableColumn nationalityCol;
+  @FXML TableColumn testTakerGroupCol;
+  String lastTestTakerSelectedNumber;
+  TestTakerList testTakerList = new TestTakerList();
+  ObservableList<TestTaker> testTakerObservableList = FXCollections.observableArrayList();
+
   @Override
   public void initialize(URL location, ResourceBundle resources)
   {
@@ -92,6 +109,7 @@ public class ManageData implements Initializable
     initializeGroups();
     initializeClassrooms();
     intializeExaminers();
+    initializeTestTakers();
   }
 
   //header logic
@@ -162,7 +180,7 @@ public class ManageData implements Initializable
       addExaminer();
     }
     else if(containerName.equals("Test-takers")){
-
+      addTestTaker();
     }
     else if(containerName.equals("Exams")){
 
@@ -183,7 +201,7 @@ public class ManageData implements Initializable
       modifyExaminer();
     }
     else if(containerName.equals("Test-takers")){
-
+      modifyTestTaker();
     }
     else if(containerName.equals("Exams")){
 
@@ -204,10 +222,98 @@ public class ManageData implements Initializable
       removeExaminer();
     }
     else if(containerName.equals("Test-takers")){
-
+      removeTestTaker();
     }
     else if(containerName.equals("Exams")){
 
+    }
+  }
+
+  //Test-taker logic
+
+  public void initializeTestTakers(){
+    testTakerNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+    studyNumberCol.setCellValueFactory(new PropertyValueFactory<>("studyNumber"));
+    nationalityCol.setCellValueFactory(new PropertyValueFactory<>("nationality"));
+    testTakerGroupCol.setCellValueFactory(new PropertyValueFactory<>("group"));
+    testTakerTableView.setItems(testTakerObservableList);
+    selectTestTaker();
+  }
+
+  public void addTestTaker(){
+    TestTaker aux = new TestTaker(testTakerName.getText(), studyNumber.getText(), (Group)choiceBoxGroupTestTaker.getValue(), nationality.getText());
+    if(testTakerList.testTakerValidator(aux)){
+      testTakerList.addTestTaker(aux);
+      testTakerObservableList.add(aux);
+      testTakerName.clear();
+      studyNumber.clear();
+      nationality.clear();
+      choiceBoxGroupTestTaker.setValue(null);
+    }else{
+      testTakerAlert();
+    }
+  }
+
+  public void selectTestTaker(){
+    testTakerTableView.getSelectionModel().setCellSelectionEnabled(true);
+    ObservableList selectedCells = testTakerTableView.getSelectionModel().getSelectedItems();
+
+    selectedCells.addListener(new ListChangeListener() {
+      @Override
+      public void onChanged(Change c) {
+        if(selectedCells.size()>0)
+        {
+          TestTaker aux = (TestTaker) selectedCells.get(0);
+          testTakerName.setText(aux.getName());
+          studyNumber.setText(aux.getStudyNumber());
+          nationality.setText(aux.getNationality());
+          choiceBoxGroupTestTaker.setValue(aux.getGroup());
+          lastTestTakerSelectedNumber = studyNumber.getText();
+        }
+      }
+    });
+  }
+
+  public void modifyTestTaker(){
+    TestTaker aux = new TestTaker(testTakerName.getText(), studyNumber.getText(), (Group)choiceBoxGroupTestTaker.getValue(), nationality.getText());
+    if(!testTakerList.testTakerValidator(aux)){
+      testTakerAlert();
+      return;
+    }
+    int index = 0;
+    for (TestTaker testTaker: testTakerList.getTestTakers())
+    {
+      if(testTaker.getStudyNumber().equals(lastTestTakerSelectedNumber)){
+        testTaker.setName(aux.getName());
+        testTaker.setStudyNumber(aux.getStudyNumber());
+        testTaker.setNationality(aux.getNationality());
+        testTaker.setGroup(aux.getGroup());
+        testTakerObservableList.get(index).setName(aux.getName());
+        testTakerObservableList.get(index).setStudyNumber(aux.getStudyNumber());
+        testTakerObservableList.get(index).setNationality(aux.getNationality());
+        testTakerObservableList.get(index).setGroup(aux.getGroup());
+        lastTestTakerSelectedNumber = studyNumber.getText();
+        testTakerTableView.refresh();
+        break;
+      }
+      index++;
+    }
+  }
+
+  public void removeTestTaker(){
+    int index = 0;
+    for (TestTaker testTaker: testTakerList.getTestTakers())
+    {
+      if(testTaker.getStudyNumber().equals(studyNumber.getText())){
+        testTakerObservableList.remove(index);
+        testTakerList.removeTestTaker(testTaker);
+        testTakerName.clear();
+        studyNumber.clear();
+        nationality.clear();
+        choiceBoxGroupTestTaker.setValue(null);
+        return;
+      }
+      index++;
     }
   }
 
@@ -251,7 +357,12 @@ public class ManageData implements Initializable
   }
 
   public void modifyExaminer(){
+    Examiner aux = new Examiner(examinerName.getText(), (Course)choiceBoxExaminer.getValue());
     String auxName = examinerName.getText();
+    if(!examinerList.examinerValidator(aux)){
+      nameAlert();
+      return;
+    }
     int index = 0;
     for (Examiner examiner: examinerList.getExaminers())
     {
@@ -540,6 +651,13 @@ public class ManageData implements Initializable
     Alert alert = new Alert(Alert.AlertType.ERROR);
     alert.setTitle("Invalid classroom input");
     alert.setHeaderText("Classroom with this name already exists or capacity is invalid!");
+    alert.showAndWait();
+  }
+
+  public void testTakerAlert(){
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Invalid test-taker input");
+    alert.setHeaderText("Test-taker has invalid name/nationality/group input or study number is duplicate!");
     alert.showAndWait();
   }
 }

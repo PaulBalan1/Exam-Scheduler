@@ -7,12 +7,8 @@ public class TestTaker
   private String nationality;
   private Group group;
 
-  private boolean studyNumberDuplicate;
-
   public TestTaker(String name, String studyNumber, Group group, String nationality){
-    studyNumberDuplicate = false;
     setStudyNumber(studyNumber);
-    if(studyNumberDuplicate) return;            // TODO Study number duplicate error
     setName(name);
     this.group = group;
     setNationality(nationality);
@@ -25,17 +21,12 @@ public class TestTaker
 
   public void setNationality(String nationality)                    //Takes first 2 chars and makes them uppercase
   {
-    this.nationality = nationality.substring(0,2).toUpperCase();
+    if(nationality.length()<2) this.nationality = nationality;
+    else this.nationality = nationality.substring(0,2).toUpperCase();
   }
 
   public void setStudyNumber(String studyNumber)
   {
-    if(TestTakerList.studyNumbers.contains(studyNumber))
-    {
-      System.out.println("Study number already exists!");
-      studyNumberDuplicate = true;
-    }
-
     TestTakerList.studyNumbers.add(studyNumber);
     this.studyNumber = studyNumber;
   }
@@ -43,6 +34,11 @@ public class TestTaker
   public void setGroup(String groupName)
   {
     this.group = new Group(groupName);
+  }
+
+  public void setGroup(Group group)
+  {
+    this.group = group;
   }
 
   public String getName()

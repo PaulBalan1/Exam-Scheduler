@@ -32,17 +32,17 @@
                   </Pane>
                   <Pane fx:id="testTakers" layoutX="-2.0" prefHeight="334.0" prefWidth="800.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView prefHeight="334.0" prefWidth="800.0">
+                        <TableView fx:id="testTakerTableView" prefHeight="334.0" prefWidth="800.0">
                           <columns>
-                            <TableColumn prefWidth="200.0" text="Name" />
-                            <TableColumn prefWidth="200.0" text="Study Number" />
-                              <TableColumn prefWidth="200.0" text="Nationality" />
-                              <TableColumn prefWidth="200.0" text="Group" />
+                            <TableColumn fx:id="testTakerNameCol" prefWidth="200.0" text="Name" />
+                            <TableColumn fx:id="studyNumberCol" prefWidth="200.0" text="Study Number" />
+                              <TableColumn fx:id="nationalityCol" prefWidth="200.0" text="Nationality" />
+                              <TableColumn fx:id="testTakerGroupCol" prefWidth="200.0" text="Group" />
                           </columns>
                         </TableView>
-                        <TextField layoutX="96.0" layoutY="394.0" prefHeight="25.0" prefWidth="125.0" />
-                        <TextField layoutX="260.0" layoutY="394.0" prefWidth="125.0" />
-                        <TextField layoutX="425.0" layoutY="394.0" prefWidth="125.0" />
+                        <TextField fx:id="testTakerName" layoutX="96.0" layoutY="394.0" prefHeight="25.0" prefWidth="125.0" />
+                        <TextField fx:id="studyNumber" layoutX="260.0" layoutY="394.0" prefWidth="125.0" />
+                        <TextField fx:id="nationality" layoutX="425.0" layoutY="394.0" prefWidth="125.0" />
                         <Label layoutX="143.0" layoutY="377.0" text="Name" />
                         <Label layoutX="284.0" layoutY="377.0" text="Study Number" />
                         <Label layoutX="458.0" layoutY="377.0" text="Nationality" />
