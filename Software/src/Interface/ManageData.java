@@ -28,9 +28,11 @@ public class ManageData implements Initializable
   @FXML ChoiceBox<String> choiceBoxButton;
 
   //dropdowns
-  @FXML ChoiceBox<String> choiceBoxExaminer;
-  @FXML ChoiceBox<String> choiceBoxCourseExam;
-  @FXML ChoiceBox<String> choiceBoxGroupTestTaker;
+  @FXML ChoiceBox<Object> choiceBoxExaminer;
+  @FXML ChoiceBox<Object> choiceBoxCourseExam;
+  @FXML ChoiceBox<Object> choiceBoxGroupTestTaker;
+  @FXML ChoiceBox<Object> choiceBoxClassroomExam;
+  @FXML ChoiceBox<Object> choiceBoxGroupExam;
 
   //Panes
   @FXML Pane courses;
@@ -221,6 +223,7 @@ public class ManageData implements Initializable
     }
     Classroom aux = new Classroom(classroomName.getText(), Integer.parseInt(capacity.getText()), HDMI.isSelected());
     if(classroomList.classroomValidator(aux)){
+      choiceBoxClassroomExam.getItems().add(aux);
       classroomList.addClassroom(aux);
       classroomObservableList.add(aux);
       classroomName.clear();
@@ -273,6 +276,7 @@ public class ManageData implements Initializable
         classroomObservableList.get(index).setHasProjector(HDMI.isSelected());
         lastClassroomSelectedName = classroomName.getText();
         classroomTableView.refresh();
+        choiceBoxClassroomExam.getItems().set(index,classroom);
         break;
       }
       index++;
@@ -285,6 +289,7 @@ public class ManageData implements Initializable
     {
       int index = 0;
       if(classroom.getName().equals(classroomName.getText())){
+        choiceBoxClassroomExam.getItems().remove(classroom);
         classroomObservableList.remove(index);
         classroomList.removeClassroom(classroom);
         classroomName.clear();
@@ -309,8 +314,8 @@ public class ManageData implements Initializable
     if(courseList.courseNameValidator(aux)){
       courseList.addCourse(aux);
       courseObservableList.add(courseList.getCourses().get(courseList.size()-1));
-      choiceBoxExaminer.getItems().add(aux.toString());
-      choiceBoxCourseExam.getItems().add(aux.toString());
+      choiceBoxExaminer.getItems().add(aux);
+      choiceBoxCourseExam.getItems().add(aux);
       courseName.clear();
     }else{
       nameAlert();
@@ -344,6 +349,8 @@ public class ManageData implements Initializable
         course.setName(auxName);
         courseObservableList.get(index).setName(auxName);
         courseTableView.refresh();
+        choiceBoxExaminer.getItems().set(index,course);
+        choiceBoxCourseExam.getItems().set(index,course);
         break;
       }
       index++;
@@ -357,8 +364,8 @@ public class ManageData implements Initializable
         courseObservableList.remove(course);
         courseList.removeCourse(course);
         courseName.clear();
-        choiceBoxExaminer.getItems().remove(course.toString());
-        choiceBoxCourseExam.getItems().remove(course.toString());
+        choiceBoxExaminer.getItems().remove(course);
+        choiceBoxCourseExam.getItems().remove(course);
         return;
       }
     }
@@ -375,7 +382,8 @@ public class ManageData implements Initializable
   public void addGroup(){
     Group aux = new Group(groupName.getText());
     if(groupList.groupNameValidator(aux)){
-      choiceBoxGroupTestTaker.getItems().add(aux.toString());
+      choiceBoxGroupTestTaker.getItems().add(aux);
+      choiceBoxGroupExam.getItems().add(aux);
       groupList.addGroup(groupName.getText());
       groupObservableList.add(aux);
       groupName.clear();
@@ -411,6 +419,8 @@ public class ManageData implements Initializable
         group.setGroupName(auxName);
         groupObservableList.get(index).setGroupName(auxName);
         groupTableView.refresh();
+        choiceBoxGroupTestTaker.getItems().set(index, group);
+        choiceBoxGroupExam.getItems().set(index, group);
         break;
       }
       index++;
@@ -422,7 +432,8 @@ public class ManageData implements Initializable
     for (Group group: groupList.getGroups())
     {
       if(group.getGroupName().equals(groupName.getText())){
-        choiceBoxGroupTestTaker.getItems().remove(group.toString());
+        choiceBoxGroupTestTaker.getItems().remove(index);
+        choiceBoxGroupExam.getItems().remove(index);
         groupObservableList.remove(index);
         groupList.removeGroup(group);
         groupName.clear();
