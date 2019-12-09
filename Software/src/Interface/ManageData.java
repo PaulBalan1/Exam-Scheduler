@@ -28,7 +28,6 @@ public class ManageData implements Initializable
   @FXML ChoiceBox<String> choiceBoxButton;
 
   //dropdowns
-  @FXML ChoiceBox<Object> choiceBoxExaminer;
   @FXML ChoiceBox<Object> choiceBoxCourseExam;
   @FXML ChoiceBox<Object> choiceBoxGroupTestTaker;
   @FXML ChoiceBox<Object> choiceBoxClassroomExam;
@@ -74,6 +73,16 @@ public class ManageData implements Initializable
   ClassroomList classroomList = new ClassroomList();
   ObservableList<Classroom> classroomObservableList = FXCollections.observableArrayList();
 
+  //examiners
+  @FXML TextField examinerName;
+  @FXML ChoiceBox<Object> choiceBoxExaminer;
+  @FXML TableView examinerTableView;
+  @FXML TableColumn examinerNameCol;
+  @FXML TableColumn examinerCourseCol;
+  String lastExaminerSelectedName;
+  ExaminerList examinerList = new ExaminerList();
+  ObservableList<Examiner> examinerObservableList = FXCollections.observableArrayList();
+
   @Override
   public void initialize(URL location, ResourceBundle resources)
   {
@@ -82,6 +91,7 @@ public class ManageData implements Initializable
     initializeCourses();
     initializeGroups();
     initializeClassrooms();
+    intializeExaminers();
   }
 
   //header logic
@@ -149,7 +159,7 @@ public class ManageData implements Initializable
       addGroup();
     }
     else if(containerName.equals("Examiners")){
-
+      addExaminer();
     }
     else if(containerName.equals("Test-takers")){
 
@@ -170,7 +180,7 @@ public class ManageData implements Initializable
       modifyGroup();
     }
     else if(containerName.equals("Examiners")){
-
+      modifyExaminer();
     }
     else if(containerName.equals("Test-takers")){
 
@@ -191,7 +201,7 @@ public class ManageData implements Initializable
       removeGroup();
     }
     else if(containerName.equals("Examiners")){
-
+      removeExaminer();
     }
     else if(containerName.equals("Test-takers")){
 
@@ -200,6 +210,79 @@ public class ManageData implements Initializable
 
     }
   }
+
+  //Examiner logic
+
+  public void  intializeExaminers(){
+    examinerNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+    examinerCourseCol.setCellValueFactory(new PropertyValueFactory<>("course"));
+    examinerTableView.setItems(examinerObservableList);
+    selectExaminer();
+  }
+
+  public void addExaminer(){
+    Examiner aux = new Examiner(examinerName.getText(), (Course)choiceBoxExaminer.getValue());
+    if(examinerList.examinerValidator(aux)){
+      examinerList.addExaminer(aux);
+      examinerObservableList.add(aux);
+      examinerName.clear();
+      choiceBoxExaminer.setValue(null);
+    }else{
+      nameAlert();
+    }
+  }
+
+  public void selectExaminer(){
+    examinerTableView.getSelectionModel().setCellSelectionEnabled(true);
+    ObservableList selectedCells = examinerTableView.getSelectionModel().getSelectedItems();
+
+    selectedCells.addListener(new ListChangeListener() {
+      @Override
+      public void onChanged(Change c) {
+        if(selectedCells.size()>0)
+        {
+          Examiner aux = (Examiner) selectedCells.get(0);
+          examinerName.setText(aux.getName());
+          choiceBoxExaminer.setValue(aux.getCourse());
+          lastExaminerSelectedName = examinerName.getText();
+        }
+      }
+    });
+  }
+
+  public void modifyExaminer(){
+    String auxName = examinerName.getText();
+    int index = 0;
+    for (Examiner examiner: examinerList.getExaminers())
+    {
+      if(examiner.getName().equals(lastExaminerSelectedName)){
+        examiner.setName(auxName);
+        examiner.setCourse((Course)choiceBoxExaminer.getValue());
+        examinerObservableList.get(index).setName(auxName);
+        examinerObservableList.get(index).setCourse(examiner.getCourse());
+        lastExaminerSelectedName = examinerName.getText();
+        examinerTableView.refresh();
+        break;
+      }
+      index++;
+    }
+  }
+
+  public void removeExaminer(){
+    int index = 0;
+    for (Examiner examiner: examinerList.getExaminers())
+    {
+      if(examiner.getName().equals(examinerName.getText())){
+        examinerObservableList.remove(index);
+        examinerList.removeExaminer(examiner);
+        examinerName.clear();
+        choiceBoxExaminer.setValue(null);
+        return;
+      }
+      index++;
+    }
+  }
+
 
   //Classroom logic
 
@@ -285,9 +368,9 @@ public class ManageData implements Initializable
 
 
   public void removeClassroom(){
+    int index = 0;
     for (Classroom classroom: classroomList.getClassrooms())
     {
-      int index = 0;
       if(classroom.getName().equals(classroomName.getText())){
         choiceBoxClassroomExam.getItems().remove(classroom);
         classroomObservableList.remove(index);

@@ -9,6 +9,25 @@ public class ExaminerList {
         examiners = new ArrayList<Examiner>();
     }
 
+    public ArrayList<Examiner> getExaminers()
+    {
+        return examiners;
+    }
+
+    public boolean examinerValidator(Examiner examiner){
+        String s = examiner.getName();
+        if(s.equals("")) return false;
+        if(s.matches(".*\\d.*")) return false;
+        for(Examiner aux: examiners){
+            if(aux.getName().equals(examiner.getName()))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     public void addExaminer(Examiner examiner){
         examiners.add(examiner);
     }

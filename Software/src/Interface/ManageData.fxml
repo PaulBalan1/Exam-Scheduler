@@ -88,15 +88,15 @@
                   </Pane>
                   <Pane fx:id="examiners" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView prefHeight="334.0" prefWidth="800.0">
+                        <TableView fx:id="examinerTableView" prefHeight="334.0" prefWidth="800.0">
                           <columns>
-                            <TableColumn prefWidth="400.0" text="Name" />
-                            <TableColumn prefWidth="400.0" text="Course" />
+                            <TableColumn fx:id="examinerNameCol" prefWidth="400.0" text="Name" />
+                            <TableColumn fx:id="examinerCourseCol" prefWidth="400.0" text="Course" />
                           </columns>
                         </TableView>
                         <Label layoutX="264.0" layoutY="382.0" prefHeight="17.0" prefWidth="88.0" text="Examiner Name" />
                         <Label layoutX="455.0" layoutY="382.0" text="Course" />
-                        <TextField layoutX="226.0" layoutY="399.0" />
+                        <TextField fx:id="examinerName" layoutX="226.0" layoutY="399.0" />
                         <ChoiceBox fx:id="choiceBoxExaminer" layoutX="398.0" layoutY="399.0" prefWidth="150.0" />
                      </children>
                   </Pane>
