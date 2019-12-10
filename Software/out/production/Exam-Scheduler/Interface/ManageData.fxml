@@ -32,17 +32,17 @@
                   </Pane>
                   <Pane fx:id="testTakers" layoutX="-2.0" prefHeight="334.0" prefWidth="800.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView prefHeight="334.0" prefWidth="800.0">
+                        <TableView fx:id="testTakerTableView" prefHeight="334.0" prefWidth="800.0">
                           <columns>
-                            <TableColumn prefWidth="200.0" text="Name" />
-                            <TableColumn prefWidth="200.0" text="Study Number" />
-                              <TableColumn prefWidth="200.0" text="Nationality" />
-                              <TableColumn prefWidth="200.0" text="Group" />
+                            <TableColumn fx:id="testTakerNameCol" prefWidth="200.0" text="Name" />
+                            <TableColumn fx:id="studyNumberCol" prefWidth="200.0" text="Study Number" />
+                              <TableColumn fx:id="nationalityCol" prefWidth="200.0" text="Nationality" />
+                              <TableColumn fx:id="testTakerGroupCol" prefWidth="200.0" text="Group" />
                           </columns>
                         </TableView>
-                        <TextField layoutX="96.0" layoutY="394.0" prefHeight="25.0" prefWidth="125.0" />
-                        <TextField layoutX="260.0" layoutY="394.0" prefWidth="125.0" />
-                        <TextField layoutX="425.0" layoutY="394.0" prefWidth="125.0" />
+                        <TextField fx:id="testTakerName" layoutX="96.0" layoutY="394.0" prefHeight="25.0" prefWidth="125.0" />
+                        <TextField fx:id="studyNumber" layoutX="260.0" layoutY="394.0" prefWidth="125.0" />
+                        <TextField fx:id="nationality" layoutX="425.0" layoutY="394.0" prefWidth="125.0" />
                         <Label layoutX="143.0" layoutY="377.0" text="Name" />
                         <Label layoutX="284.0" layoutY="377.0" text="Study Number" />
                         <Label layoutX="458.0" layoutY="377.0" text="Nationality" />
@@ -86,20 +86,6 @@
                         <TextField fx:id="courseName" layoutX="310.0" layoutY="394.0" />
                      </children>
                   </Pane>
-                  <Pane fx:id="examiners" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TableView prefHeight="334.0" prefWidth="800.0">
-                          <columns>
-                            <TableColumn prefWidth="400.0" text="Name" />
-                            <TableColumn prefWidth="400.0" text="Course" />
-                          </columns>
-                        </TableView>
-                        <Label layoutX="264.0" layoutY="382.0" prefHeight="17.0" prefWidth="88.0" text="Examiner Name" />
-                        <Label layoutX="455.0" layoutY="382.0" text="Course" />
-                        <TextField layoutX="226.0" layoutY="399.0" />
-                        <ChoiceBox fx:id="choiceBoxExaminer" layoutX="398.0" layoutY="399.0" prefWidth="150.0" />
-                     </children>
-                  </Pane>
                   <Pane fx:id="exams" layoutX="-2.0" prefHeight="334.0" prefWidth="800.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView prefHeight="334.0" prefWidth="800.0">
@@ -126,7 +112,7 @@
                         <Label layoutX="471.0" layoutY="440.0" text="Type" />
                         <Label layoutX="594.0" layoutY="440.0" text="Classroom" />
                         <ChoiceBox fx:id="choiceBoxCourseExam" layoutX="437.0" layoutY="392.0" prefWidth="94.0" />
-                        <ChoiceBox layoutX="557.0" layoutY="392.0" prefWidth="130.0" />
+                        <ChoiceBox fx:id="choiceBoxExaminerExam" layoutX="557.0" layoutY="392.0" prefWidth="130.0" />
                         <ChoiceBox fx:id="choiceBoxClassroomExam" layoutX="557.0" layoutY="457.0" prefWidth="130.0" />
                         <ChoiceBox fx:id="choiceBoxGroupExam" layoutX="263.0" layoutY="457.0" prefWidth="120.0" />
                         <Label layoutX="306.0" layoutY="440.0" text="Group" />
@@ -134,6 +120,20 @@
                         <TextField layoutX="319.0" layoutY="392.0" prefHeight="25.0" prefWidth="90.0" />
                         <Label layoutX="262.0" layoutY="375.0" text="Month" />
                         <Label layoutX="352.0" layoutY="375.0" text="Year" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="examiners" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView fx:id="examinerTableView" prefHeight="334.0" prefWidth="800.0">
+                          <columns>
+                            <TableColumn fx:id="examinerNameCol" prefWidth="400.0" text="Name" />
+                            <TableColumn fx:id="examinerCourseCol" prefWidth="400.0" text="Course" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="264.0" layoutY="382.0" prefHeight="17.0" prefWidth="88.0" text="Examiner Name" />
+                        <Label layoutX="455.0" layoutY="382.0" text="Course" />
+                        <TextField fx:id="examinerName" layoutX="226.0" layoutY="399.0" />
+                        <ChoiceBox fx:id="choiceBoxExaminer" layoutX="398.0" layoutY="399.0" prefWidth="150.0" />
                      </children>
                   </Pane>
                </children>
