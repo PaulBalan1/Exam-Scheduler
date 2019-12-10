@@ -35,6 +35,9 @@ public class ManageData implements Initializable
   @FXML ChoiceBox<Object> choiceBoxClassroomExam;
       //examiner choice box moved to "//examiners" section below
   @FXML ChoiceBox<Object> choiceBoxGroupExam;
+  @FXML ChoiceBox<Object> choiceBoxExaminerExam;
+
+
 
   //Panes
   @FXML Pane courses;
@@ -333,6 +336,7 @@ public class ManageData implements Initializable
       examinerObservableList.add(aux);
       examinerName.clear();
       choiceBoxExaminer.setValue(null);
+      choiceBoxExaminerExam.getItems().add(aux);
     }else{
       nameAlert();
     }
@@ -373,6 +377,7 @@ public class ManageData implements Initializable
         examinerObservableList.get(index).setCourse(examiner.getCourse());
         lastExaminerSelectedName = examinerName.getText();
         examinerTableView.refresh();
+        choiceBoxExaminerExam.getItems().set(index,aux);
         break;
       }
       index++;
@@ -388,6 +393,7 @@ public class ManageData implements Initializable
         examinerList.removeExaminer(examiner);
         examinerName.clear();
         choiceBoxExaminer.setValue(null);
+        choiceBoxExaminerExam.getItems().remove(examiner);
         return;
       }
       index++;
@@ -545,6 +551,7 @@ public class ManageData implements Initializable
         courseTableView.refresh();
         choiceBoxExaminer.getItems().set(index,course);
         choiceBoxCourseExam.getItems().set(index,course);
+        examinerTableView.refresh();
         break;
       }
       index++;
@@ -615,6 +622,7 @@ public class ManageData implements Initializable
         groupTableView.refresh();
         choiceBoxGroupTestTaker.getItems().set(index, group);
         choiceBoxGroupExam.getItems().set(index, group);
+        testTakerTableView.refresh();
         break;
       }
       index++;
