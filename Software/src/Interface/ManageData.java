@@ -660,4 +660,4 @@ public class ManageData implements Initializable
     alert.setHeaderText("Test-taker has invalid name/nationality/group input or study number is duplicate!");
     alert.showAndWait();
   }
-}
+} 
