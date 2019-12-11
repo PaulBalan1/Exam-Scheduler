@@ -19,11 +19,11 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import javax.print.attribute.standard.JobKOctets;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ManageData implements Initializable
+public class ManageData implements Initializable, Serializable
 {
   //header
   @FXML Button backButton;
@@ -48,8 +48,8 @@ public class ManageData implements Initializable
   @FXML Pane exams;
 
 
-  //3 buttons
-  @FXML Button add, modify, remove;
+  //4 buttons
+  @FXML Button add, modify, remove, save;
 
   //course
   @FXML TextField courseName;
@@ -113,6 +113,24 @@ public class ManageData implements Initializable
     initializeClassrooms();
     intializeExaminers();
     initializeTestTakers();
+    ObjectInputStream in = null;
+    try {
+      File course = new File("courseSaveFile.bin");
+      FileInputStream fis = new FileInputStream(course);
+      in = new ObjectInputStream(fis);
+      try {
+        courseList = (CourseList) in.readObject();
+        for (Course course1:courseList.getCourses()){
+          courseObservableList.add(course1);
+        }
+      }
+      catch (EOFException | ClassNotFoundException  e){
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e){
+      e.printStackTrace();
+    }
   }
 
   //header logic
@@ -643,6 +661,47 @@ public class ManageData implements Initializable
         break;
       }
       index++;
+    }
+  }
+
+  //Files
+
+  public void saveButtonSelector(){
+    String containerName = choiceBoxButton.getValue();
+    if(containerName.equals("Courses")){
+      saveCourse();
+    }else if(containerName.equals("Classrooms")){
+
+    }
+    else if(containerName.equals("Groups")){
+
+    }
+    else if(containerName.equals("Examiners")){
+
+    }
+    else if(containerName.equals("Test-takers")){
+
+    }
+    else if(containerName.equals("Exams")){
+
+    }
+  }
+
+  public void saveCourse(){
+    ObjectOutputStream out = null;
+    try {
+      File file = new File("courseSaveFile.bin");
+      FileOutputStream fos = new FileOutputStream(file);
+      out = new ObjectOutputStream(fos);
+      try {
+        out.writeObject(courseList);
+      }
+      catch (IOException e){
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e){
+      e.printStackTrace();
     }
   }
 
