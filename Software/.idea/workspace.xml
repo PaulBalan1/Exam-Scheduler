@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0f31b051-7a63-441f-ba80-f5e5b238d944" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/Interface/ManageData$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/Interface/ManageData$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/Interface/ManageData$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/Interface/ManageData$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/Interface/ManageData$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/Interface/ManageData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/Interface/ManageData.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/Interface/ManageData.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/ManageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/ManageData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,10 +182,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="225" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575560115248">
+    <state x="225" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576075976855">
       <screen x="0" y="0" width="1536" height="764" />
     </state>
-    <state x="225" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.764@0.0.1536.764" timestamp="1575560115248" />
+    <state x="225" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.764@0.0.1536.764" timestamp="1576075976855" />
     <state x="539" y="106" key="#com.intellij.ide.util.MemberChooser" timestamp="1575280152471">
       <screen x="0" y="0" width="1536" height="764" />
     </state>

@@ -1,8 +1,6 @@
 package Interface;
 
 import Classes.*;
-import com.sun.javafx.image.IntPixelGetter;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -18,7 +16,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
-import javax.print.attribute.standard.JobKOctets;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -102,6 +99,9 @@ public class ManageData implements Initializable
   String lastTestTakerSelectedNumber;
   TestTakerList testTakerList = new TestTakerList();
   ObservableList<TestTaker> testTakerObservableList = FXCollections.observableArrayList();
+
+  //exams
+
 
   @Override
   public void initialize(URL location, ResourceBundle resources)
