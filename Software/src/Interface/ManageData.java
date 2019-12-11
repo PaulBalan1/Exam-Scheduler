@@ -727,4 +727,4 @@ public class ManageData implements Initializable, Serializable
     alert.setHeaderText("Test-taker has invalid name/nationality/group input or study number is duplicate!");
     alert.showAndWait();
   }
-}
+} 
