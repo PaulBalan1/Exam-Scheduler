@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -19,6 +20,7 @@
                <children>
                   <Button fx:id="backButton" layoutX="37.0" layoutY="12.0" minWidth="56.0" mnemonicParsing="false" onAction="#pushBackButton" text="&lt; Back" />
                   <ChoiceBox fx:id="choiceBoxButton" accessibleText="Test" layoutX="138.0" layoutY="12.0" minWidth="150.0" onAction="#getSelectedOption" prefWidth="150.0" />
+                  <Button fx:id="save" layoutX="708.0" layoutY="12.0" mnemonicParsing="false" onAction="#saveButtonSelector" prefWidth="75.0" text="Save" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -86,42 +88,6 @@
                         <TextField fx:id="courseName" layoutX="310.0" layoutY="394.0" />
                      </children>
                   </Pane>
-                  <Pane fx:id="exams" layoutX="-2.0" prefHeight="334.0" prefWidth="800.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TableView prefHeight="334.0" prefWidth="800.0">
-                          <columns>
-                              <TableColumn prefWidth="100.0" text="Name" />
-                              <TableColumn minWidth="92.79995727539062" prefWidth="93.0" text="Date" />
-                              <TableColumn minWidth="94.40003967285156" prefWidth="94.40003967285156" text="Course" />
-                            <TableColumn minWidth="100.0" prefWidth="130.0" text="Examiner" />
-                              <TableColumn minWidth="100.0" prefWidth="130.0" text="Co-examiner" />
-                              <TableColumn minWidth="100.0" prefWidth="130.0" text="Test-Taker" />
-                              <TableColumn minWidth="56.0" prefWidth="56.0" text="Type" />
-                            <TableColumn minWidth="51.199951171875" prefWidth="62.0" text="Classroom" />
-                          </columns>
-                        </TableView>
-                        <TextField layoutX="91.0" layoutY="392.0" prefWidth="100.0" />
-                        <TextField layoutX="215.0" layoutY="392.0" prefHeight="25.0" prefWidth="35.0" />
-                        <TextField layoutX="91.0" layoutY="457.0" prefWidth="130.0" />
-                        <TextField layoutX="437.0" layoutY="457.0" prefWidth="94.0" />
-                        <Label layoutX="125.0" layoutY="375.0" text="Name" />
-                        <Label layoutX="222.0" layoutY="375.0" text="Day" />
-                        <Label layoutX="465.0" layoutY="375.0" text="Course" />
-                        <Label layoutX="598.0" layoutY="375.0" text="Examiner" />
-                        <Label layoutX="123.0" layoutY="440.0" text="Co-examiner" />
-                        <Label layoutX="471.0" layoutY="440.0" text="Type" />
-                        <Label layoutX="594.0" layoutY="440.0" text="Classroom" />
-                        <ChoiceBox fx:id="choiceBoxCourseExam" layoutX="437.0" layoutY="392.0" prefWidth="94.0" />
-                        <ChoiceBox fx:id="choiceBoxExaminerExam" layoutX="557.0" layoutY="392.0" prefWidth="130.0" />
-                        <ChoiceBox fx:id="choiceBoxClassroomExam" layoutX="557.0" layoutY="457.0" prefWidth="130.0" />
-                        <ChoiceBox fx:id="choiceBoxGroupExam" layoutX="263.0" layoutY="457.0" prefWidth="120.0" />
-                        <Label layoutX="306.0" layoutY="440.0" text="Group" />
-                        <TextField layoutX="263.0" layoutY="392.0" prefHeight="25.0" prefWidth="35.0" />
-                        <TextField layoutX="319.0" layoutY="392.0" prefHeight="25.0" prefWidth="90.0" />
-                        <Label layoutX="262.0" layoutY="375.0" text="Month" />
-                        <Label layoutX="352.0" layoutY="375.0" text="Year" />
-                     </children>
-                  </Pane>
                   <Pane fx:id="examiners" prefHeight="334.0" prefWidth="798.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView fx:id="examinerTableView" prefHeight="334.0" prefWidth="800.0">
@@ -134,6 +100,42 @@
                         <Label layoutX="455.0" layoutY="382.0" text="Course" />
                         <TextField fx:id="examinerName" layoutX="226.0" layoutY="399.0" />
                         <ChoiceBox fx:id="choiceBoxExaminer" layoutX="398.0" layoutY="399.0" prefWidth="150.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="exams" layoutX="-2.0" prefHeight="334.0" prefWidth="800.0" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView fx:id="examTableView" prefHeight="334.0" prefWidth="800.0">
+                          <columns>
+                              <TableColumn fx:id="examNameCol" prefWidth="100.0" text="Name" />
+                              <TableColumn fx:id="examDateCol" minWidth="92.79995727539062" prefWidth="93.0" text="Date" />
+                              <TableColumn fx:id="examCourseCol" minWidth="94.40003967285156" prefWidth="94.40003967285156" text="Course" />
+                            <TableColumn fx:id="examExaminerCol" minWidth="100.0" prefWidth="130.0" text="Examiner" />
+                              <TableColumn fx:id="coExaminerCol" minWidth="100.0" prefWidth="130.0" text="Co-examiner" />
+                              <TableColumn fx:id="examGroupCol" minWidth="56.40008544921875" prefWidth="61.2000732421875" text="Group" />
+                              <TableColumn fx:id="examTypeCol" minWidth="56.0" prefWidth="78.39990234375" text="Type" />
+                            <TableColumn fx:id="examClassroomCol" minWidth="51.199951171875" prefWidth="108.4000244140625" text="Classroom" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="examName" layoutX="91.0" layoutY="392.0" prefWidth="100.0" />
+                        <TextField fx:id="day" layoutX="215.0" layoutY="392.0" prefHeight="25.0" prefWidth="35.0" />
+                        <TextField fx:id="coExaminer" layoutX="91.0" layoutY="457.0" prefWidth="130.0" />
+                        <Label layoutX="125.0" layoutY="375.0" text="Name" />
+                        <Label layoutX="222.0" layoutY="375.0" text="Day" />
+                        <Label layoutX="465.0" layoutY="375.0" text="Course" />
+                        <Label layoutX="598.0" layoutY="375.0" text="Examiner" />
+                        <Label layoutX="123.0" layoutY="440.0" text="Co-examiner" />
+                        <Label layoutX="594.0" layoutY="440.0" text="Classroom" />
+                        <ChoiceBox fx:id="choiceBoxCourseExam" layoutX="437.0" layoutY="392.0" prefWidth="94.0" />
+                        <ChoiceBox fx:id="choiceBoxExaminerExam" layoutX="557.0" layoutY="392.0" prefWidth="130.0" />
+                        <ChoiceBox fx:id="choiceBoxClassroomExam" layoutX="557.0" layoutY="457.0" prefWidth="130.0" />
+                        <ChoiceBox fx:id="choiceBoxGroupExam" layoutX="263.0" layoutY="457.0" prefWidth="120.0" />
+                        <TextField fx:id="month" layoutX="263.0" layoutY="392.0" prefHeight="25.0" prefWidth="35.0" />
+                        <TextField fx:id="year" layoutX="319.0" layoutY="392.0" prefHeight="25.0" prefWidth="90.0" />
+                        <Label layoutX="262.0" layoutY="375.0" text="Month" />
+                        <Label layoutX="352.0" layoutY="375.0" text="Year" />
+                        <ComboBox fx:id="type" layoutX="416.0" layoutY="457.0" prefHeight="25.0" prefWidth="120.0" />
+                        <Label layoutX="306.0" layoutY="440.0" text="Group" />
+                        <Label layoutX="460.0" layoutY="440.0" text="Type" />
                      </children>
                   </Pane>
                </children>

@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javax.print.attribute.standard.JobKOctets;
 import java.io.*;
 import java.net.URL;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class ManageData implements Initializable, Serializable
@@ -27,15 +28,7 @@ public class ManageData implements Initializable, Serializable
   @FXML Button backButton;
   @FXML ChoiceBox<String> choiceBoxButton;
 
-  //dropdowns
-  @FXML ChoiceBox<Object> choiceBoxCourseExam;
-      //moved below
-  @FXML ChoiceBox<Object> choiceBoxClassroomExam;
-      //examiner choice box moved to "//examiners" section below
-  @FXML ChoiceBox<Object> choiceBoxGroupExam;
-  @FXML ChoiceBox<Object> choiceBoxExaminerExam;
-
-
+  //dropdowns moved to corresponding tags below
 
   //Panes
   @FXML Pane courses;
@@ -102,6 +95,28 @@ public class ManageData implements Initializable, Serializable
   ObservableList<TestTaker> testTakerObservableList = FXCollections.observableArrayList();
 
   //exams
+  @FXML TableView examTableView;
+  @FXML TableColumn examNameCol;
+  @FXML TableColumn examDateCol;
+  @FXML TableColumn examCourseCol;
+  @FXML TableColumn examGroupCol;
+  @FXML TableColumn examClassroomCol;
+  @FXML TableColumn examExaminerCol;
+  @FXML TableColumn coExaminerCol;
+  @FXML TableColumn examTypeCol;
+  @FXML TextField examName;
+  @FXML TextField day;
+  @FXML TextField month;
+  @FXML TextField year;
+  @FXML ChoiceBox<Object> choiceBoxCourseExam;
+  @FXML ChoiceBox<Object> choiceBoxExaminerExam;
+  @FXML ChoiceBox<Object> choiceBoxClassroomExam;
+  @FXML ChoiceBox<Object> choiceBoxGroupExam;
+  @FXML TextField coExaminer;
+  @FXML ComboBox type;
+  String lastExamNameSelected;
+  ExamList examList = new ExamList();
+  ObservableList<Exam> examObservableList = FXCollections.observableArrayList();
 
 
   @Override
@@ -109,11 +124,17 @@ public class ManageData implements Initializable, Serializable
   {
     choiceBoxButton.getItems().addAll("Courses", "Classrooms", "Groups", "Examiners", "Test-takers", "Exams");
     choiceBoxButton.setValue("Courses");
+    type.getItems().addAll("Written", "Oral");
+    type.setValue("Written");
+    year.setText(""+Calendar.getInstance().get(Calendar.YEAR));
+    month.setText(""+(Calendar.getInstance().get(Calendar.MONTH)+1));
     initializeCourses();
     initializeGroups();
     initializeClassrooms();
     intializeExaminers();
     initializeTestTakers();
+    initializeExams();
+
     ObjectInputStream in = null;
     try {
       File course = new File("courseSaveFile.bin");
@@ -205,7 +226,7 @@ public class ManageData implements Initializable, Serializable
       addTestTaker();
     }
     else if(containerName.equals("Exams")){
-
+      addExam();
     }
   }
 
@@ -248,6 +269,50 @@ public class ManageData implements Initializable, Serializable
     }
     else if(containerName.equals("Exams")){
 
+    }
+  }
+
+  //Exam logic
+
+  public void initializeExams(){
+    examNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+    examDateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+    examCourseCol.setCellValueFactory(new PropertyValueFactory<>("course"));
+    examGroupCol.setCellValueFactory(new PropertyValueFactory<>("group"));
+    examTypeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+    examClassroomCol.setCellValueFactory(new PropertyValueFactory<>("classroom"));
+    examExaminerCol.setCellValueFactory(new PropertyValueFactory<>("examiner"));
+    coExaminerCol.setCellValueFactory(new PropertyValueFactory<>("coExaminer"));
+    examTableView.setItems(examObservableList);
+    //selectExam();
+  }
+
+  public void addExam(){
+    try{
+      if((Integer.parseInt(day.getText())<1 || Integer.parseInt(day.getText())>31) || ((Integer.parseInt(month.getText())<1 || Integer.parseInt(month.getText())>12)) || (Integer.parseInt(year.getText())<Calendar.getInstance().get(Calendar.YEAR) || Integer.parseInt(year.getText())>2100)){
+        examAlert();
+        return;
+      }
+    }catch (NumberFormatException e){
+      classroomAlert();
+      return;
+    }
+    Date auxDate = new Date(Integer.parseInt(day.getText()), Integer.parseInt(month.getText()), Integer.parseInt(year.getText()));
+    Exam aux = new Exam(examName.getText(), auxDate, (Course)choiceBoxCourseExam.getValue(), (Examiner)choiceBoxExaminerExam.getValue(), coExaminer.getText(), (Group)choiceBoxGroupExam.getValue(), (String)type.getValue(), (Classroom)choiceBoxClassroomExam.getValue());
+    if(examList.examValidator(aux)){
+      examList.addExam(aux);
+      examObservableList.add(aux);
+      examName.clear();
+      day.clear();
+      month.setText(""+Calendar.getInstance().get(Calendar.MONTH));
+      year.setText(""+Calendar.getInstance().get(Calendar.YEAR));
+      choiceBoxCourseExam.setValue(null);
+      coExaminer.setText("");
+      choiceBoxGroupExam.setValue(null);
+      type.setValue("Written");
+      choiceBoxClassroomExam.setValue(null);
+    }else{
+      testTakerAlert();
     }
   }
 
@@ -726,6 +791,13 @@ public class ManageData implements Initializable, Serializable
     Alert alert = new Alert(Alert.AlertType.ERROR);
     alert.setTitle("Invalid test-taker input");
     alert.setHeaderText("Test-taker has invalid name/nationality/group input or study number is duplicate!");
+    alert.showAndWait();
+  }
+
+  public void examAlert(){
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Invalid exam input");
+    alert.setHeaderText("Exam name might be duplicate, date might be invalid or Co-Examiner name might contain illegal characters!");
     alert.showAndWait();
   }
 } 

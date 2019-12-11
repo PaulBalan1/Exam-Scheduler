@@ -66,6 +66,6 @@ public class Date
 
   @Override public String toString()
   {
-    return "Classes.Date{" + "year=" + year + ", month=" + month + ", day=" + day + '}';
+    return day+"/"+month+"/"+year;
   }
 }

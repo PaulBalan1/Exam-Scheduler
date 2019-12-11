@@ -32,9 +32,6 @@ public class Examiner {
 
     @Override
     public String toString() {
-        return "Classes.Examiner{" +
-                "name='" + name + '\'' +
-                ", course=" + course +
-                '}';
+        return name + " " + course;
     }
 }

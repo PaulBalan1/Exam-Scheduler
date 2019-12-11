@@ -10,11 +10,29 @@ public class ExamList
     this.exams = new ArrayList<Exam>();
   }
 
+  public boolean examValidator(Exam exam){
+    String coExaminer = exam.getCoExaminer();
+    String examName = exam.getName();
+    Date auxDate = exam.getDate();
+    int day = auxDate.getDay();
+    int month = auxDate.getMonth();
+    int year = auxDate.getYear();
+    if(examName.equals("")) return false;
+    if(coExaminer.matches(".*\\d.*")) return false;
+    for(Exam aux: exams){
+      if(aux.getName().equals(exam.getName()))
+      {
+        return false;
+      }
+    }
+    return true;
+  }
+
   public void addExam(Exam exam){     //TODO verify if date coincides
     for(Exam aux: exams){
       if(aux.getDate().equals(exam.getDate()))
       {
-        System.out.println("Classes.Exam on this date already exists!");     //Add warning on enter
+        //System.out.println("Classes.Exam on this date already exists!");     //Add warning on enter
         return;
       }
     }

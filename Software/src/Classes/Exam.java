@@ -9,30 +9,17 @@ public class Exam
   private Classroom classroom;
   private Examiner examiner;
   private String coExaminer;
-  private TestTakerList testTakers;
+  private Group group;
 
-  private String[] types = {"written", "oral"};
-
-  public Exam(String name, Date date, Course course, int typeIndex, Classroom classroom, Examiner examiner, TestTakerList testTakers){
+  public Exam(String name, Date date, Course course, Examiner examiner, String coExaminer, Group group, String type, Classroom classroom){
     setName(name);
     setDate(date);
     setCourse(course);
-    setType(typeIndex);    // 0 for written , 1 for oral
+    setType(type);
     setClassroom(classroom);
     setExaminer(examiner);
-    setTestTakers(testTakers);
-    coExaminer = "";
-  }
-
-  public Exam(String name, int day, int month, int year, Course course, int typeIndex, Classroom classroom, Examiner examiner, TestTakerList testTakers){
-    setName(name);
-    Date aux = new Date(day,month,year);
-    setDate(aux);
-    setCourse(course);
-    setType(typeIndex);    // 0 for written , 1 for oral
-    setClassroom(classroom);
-    setExaminer(examiner);
-    setTestTakers(testTakers);
+    setGroup(group);
+    setCoExaminer(coExaminer);
   }
 
   public String getName()
@@ -43,6 +30,11 @@ public class Exam
   public Course getCourse()
   {
     return course;
+  }
+
+  public Group getGroup()
+  {
+    return group;
   }
 
   public String getType()
@@ -70,11 +62,6 @@ public class Exam
     return coExaminer;
   }
 
-  public TestTakerList getTestTakers()
-  {
-    return testTakers;
-  }
-
   public void setName(String name)
   {
     this.name = name;
@@ -85,13 +72,9 @@ public class Exam
     this.course = course;
   }
 
-  public void setType(int typeIndex)
+  public void setType(String type)
   {
-    if(typeIndex!=0 && typeIndex!=1){
-      System.out.println("Enter valid exam type (0 or 1)!");
-      return;
-    }
-    this.type = types[typeIndex];
+    this.type = type;
   }
 
   public void setClassroom(Classroom classroom)
@@ -114,16 +97,16 @@ public class Exam
     this.examiner = examiner;
   }
 
-  public void setTestTakers(TestTakerList testTakers)
+  public void setGroup(Group group)
   {
-    this.testTakers = testTakers;
+    this.group = group;
   }
 
   @Override public String toString()
   {
     return "Classes.Exam{" + "name='" + name + '\'' + ", date=" + date + ", course="
         + course + ", classroom=" + classroom + ", examiner=" + examiner
-        + ", coExaminer='" + coExaminer + '\'' + ", testTakers=" + testTakers
+        + ", coExaminer='" + coExaminer + '\'' + ", group=" + group
         + '}';
   }
 }
