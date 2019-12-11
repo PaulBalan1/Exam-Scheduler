@@ -18,39 +18,23 @@ public class ExamList
     int month = auxDate.getMonth();
     int year = auxDate.getYear();
     if(examName.equals("")) return false;
-    if(coExaminer.matches(".*\\d.*")) return false;
-    for(Exam aux: exams){
-      if(aux.getName().equals(exam.getName()))
-      {
-        return false;
-      }
+    if(coExaminer.matches(".*\\d.*")){
+      return false;
     }
     return true;
   }
 
-  public void addExam(Exam exam){     //TODO verify if date coincides
-    for(Exam aux: exams){
-      if(aux.getDate().equals(exam.getDate()))
-      {
-        //System.out.println("Classes.Exam on this date already exists!");     //Add warning on enter
-        return;
-      }
-    }
+  public ArrayList<Exam> getExams()
+  {
+    return exams;
+  }
+
+  public void addExam(Exam exam){
     exams.add(exam);
   }
 
   public void removeExam(Exam exam){
     exams.remove(exam);
-  }
-
-  public void removeExam(String name){
-    for (Exam exam: exams)
-    {
-      if(exam.getName().equals(name)){
-        exams.remove(exam);
-        return;
-      }
-    }
   }
 
   @Override public String toString()

@@ -247,7 +247,7 @@ public class ManageData implements Initializable, Serializable
       modifyTestTaker();
     }
     else if(containerName.equals("Exams")){
-
+      modifyExam();
     }
   }
 
@@ -268,7 +268,7 @@ public class ManageData implements Initializable, Serializable
       removeTestTaker();
     }
     else if(containerName.equals("Exams")){
-
+      removeExam();
     }
   }
 
@@ -284,7 +284,7 @@ public class ManageData implements Initializable, Serializable
     examExaminerCol.setCellValueFactory(new PropertyValueFactory<>("examiner"));
     coExaminerCol.setCellValueFactory(new PropertyValueFactory<>("coExaminer"));
     examTableView.setItems(examObservableList);
-    //selectExam();
+    selectExam();
   }
 
   public void addExam(){
@@ -294,19 +294,26 @@ public class ManageData implements Initializable, Serializable
         return;
       }
     }catch (NumberFormatException e){
-      classroomAlert();
+      examAlert();
       return;
     }
     Date auxDate = new Date(Integer.parseInt(day.getText()), Integer.parseInt(month.getText()), Integer.parseInt(year.getText()));
+    for(Exam exam: examList.getExams()){
+      if(exam.getDate().equals(auxDate)){
+        examAlert();
+        return;
+      }
+    }
     Exam aux = new Exam(examName.getText(), auxDate, (Course)choiceBoxCourseExam.getValue(), (Examiner)choiceBoxExaminerExam.getValue(), coExaminer.getText(), (Group)choiceBoxGroupExam.getValue(), (String)type.getValue(), (Classroom)choiceBoxClassroomExam.getValue());
     if(examList.examValidator(aux)){
       examList.addExam(aux);
       examObservableList.add(aux);
       examName.clear();
       day.clear();
-      month.setText(""+Calendar.getInstance().get(Calendar.MONTH));
+      month.setText(""+(Calendar.getInstance().get(Calendar.MONTH)+1));
       year.setText(""+Calendar.getInstance().get(Calendar.YEAR));
       choiceBoxCourseExam.setValue(null);
+      choiceBoxExaminerExam.setValue(null);
       coExaminer.setText("");
       choiceBoxGroupExam.setValue(null);
       type.setValue("Written");
@@ -315,6 +322,91 @@ public class ManageData implements Initializable, Serializable
       testTakerAlert();
     }
   }
+
+  public void selectExam(){
+    examTableView.getSelectionModel().setCellSelectionEnabled(true);
+    ObservableList selectedCells = examTableView.getSelectionModel().getSelectedItems();
+
+    selectedCells.addListener(new ListChangeListener() {
+      @Override
+      public void onChanged(Change c) {
+        if(selectedCells.size()>0)
+        {
+          Exam aux = (Exam) selectedCells.get(0);
+          examName.setText(aux.getName());
+          day.setText(""+aux.getDate().getDay());
+          month.setText(""+aux.getDate().getMonth());
+          year.setText(""+aux.getDate().getYear());
+          choiceBoxCourseExam.setValue(aux.getCourse());
+          choiceBoxExaminerExam.setValue(aux.getExaminer());
+          coExaminer.setText(aux.getCoExaminer());
+          choiceBoxGroupExam.setValue(aux.getGroup());
+          type.setValue(aux.getType());
+          choiceBoxClassroomExam.setValue(aux.getClassroom());
+          lastExamNameSelected = examName.getText();
+        }
+      }
+    });
+  }
+
+  public void modifyExam(){
+    Date auxDate = new Date(Integer.parseInt(day.getText()), Integer.parseInt(month.getText()), Integer.parseInt(year.getText()));
+    Exam aux = new Exam(examName.getText(), auxDate, (Course)choiceBoxCourseExam.getValue(), (Examiner)choiceBoxExaminerExam.getValue(), coExaminer.getText(), (Group)choiceBoxGroupExam.getValue(), (String)type.getValue(), (Classroom)choiceBoxClassroomExam.getValue());
+    if(!examList.examValidator(aux)){
+      examAlert();
+      return;
+    }
+    int index = 0;
+    for (Exam exam: examList.getExams())
+    {
+      if(exam.getName().equals(lastExamNameSelected)){
+        exam.setName(aux.getName());
+        exam.setDate(aux.getDate());
+        exam.setCourse(aux.getCourse());
+        exam.setExaminer(aux.getExaminer());
+        exam.setCoExaminer(aux.getCoExaminer());
+        exam.setGroup(aux.getGroup());
+        exam.setType(aux.getType());
+        exam.setClassroom(aux.getClassroom());
+        examObservableList.get(index).setName(aux.getName());
+        examObservableList.get(index).setDate(aux.getDate());
+        examObservableList.get(index).setCourse(aux.getCourse());
+        examObservableList.get(index).setExaminer(aux.getExaminer());
+        examObservableList.get(index).setCoExaminer(aux.getCoExaminer());
+        examObservableList.get(index).setGroup(aux.getGroup());
+        examObservableList.get(index).setType(aux.getType());
+        examObservableList.get(index).setClassroom(aux.getClassroom());
+        lastExamNameSelected = examName.getText();
+        examTableView.refresh();
+        break;
+      }
+      index++;
+    }
+  }
+
+  public void removeExam(){
+    int index = 0;
+    for (Exam exam: examList.getExams())
+    {
+      if(exam.getName().equals(examName.getText())){
+        examObservableList.remove(index);
+        examList.removeExam(exam);
+        examName.clear();
+        day.clear();
+        month.setText(""+(Calendar.getInstance().get(Calendar.MONTH)+1));
+        year.setText(""+Calendar.getInstance().get(Calendar.YEAR));
+        choiceBoxCourseExam.setValue(null);
+        choiceBoxExaminerExam.setValue(null);
+        coExaminer.setText("");
+        choiceBoxGroupExam.setValue(null);
+        type.setValue("Written");
+        choiceBoxClassroomExam.setValue(null);
+        return;
+      }
+      index++;
+    }
+  }
+
 
   //Test-taker logic
 
@@ -797,7 +889,7 @@ public class ManageData implements Initializable, Serializable
   public void examAlert(){
     Alert alert = new Alert(Alert.AlertType.ERROR);
     alert.setTitle("Invalid exam input");
-    alert.setHeaderText("Exam name might be duplicate, date might be invalid or Co-Examiner name might contain illegal characters!");
+    alert.setHeaderText("Exam name/date might be duplicate, invalid or Co-Examiner name might contain illegal characters!");
     alert.showAndWait();
   }
 } 
