@@ -10,7 +10,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainMenu{
+
+public class MainMenu
+{
   @FXML Button manageDataButton;
 
   public void pushButtonManageData(javafx.event.ActionEvent event) throws IOException {

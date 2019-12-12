@@ -16,7 +16,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
-import javax.print.attribute.standard.JobKOctets;
 import java.io.*;
 import java.net.URL;
 import java.util.Calendar;
@@ -27,8 +26,6 @@ public class ManageData implements Initializable, Serializable
   //header
   @FXML Button backButton;
   @FXML ChoiceBox<String> choiceBoxButton;
-
-  //dropdowns moved to corresponding tags below
 
   //Panes
   @FXML Pane courses;
