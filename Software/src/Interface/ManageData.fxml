@@ -20,7 +20,7 @@
                <children>
                   <Button fx:id="backButton" layoutX="37.0" layoutY="12.0" minWidth="56.0" mnemonicParsing="false" onAction="#pushBackButton" text="&lt; Back" />
                   <ChoiceBox fx:id="choiceBoxButton" accessibleText="Test" layoutX="138.0" layoutY="12.0" minWidth="150.0" onAction="#getSelectedOption" prefWidth="150.0" />
-                  <Button fx:id="save" layoutX="708.0" layoutY="12.0" mnemonicParsing="false" onAction="#saveButtonSelector" prefWidth="75.0" text="Save" />
+                  <Button fx:id="save" layoutX="708.0" layoutY="12.0" mnemonicParsing="false" onAction="#save" prefWidth="75.0" text="Save" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">

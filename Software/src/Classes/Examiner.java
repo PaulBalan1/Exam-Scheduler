@@ -1,6 +1,8 @@
 package Classes;
 
-public class Examiner {
+import java.io.Serializable;
+
+public class Examiner implements Serializable {
     private String name;
     private Course course;
 

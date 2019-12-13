@@ -131,25 +131,7 @@ public class ManageData implements Initializable, Serializable
     intializeExaminers();
     initializeTestTakers();
     initializeExams();
-
-    ObjectInputStream in = null;
-    try {
-      File course = new File("courseSaveFile.bin");
-      FileInputStream fis = new FileInputStream(course);
-      in = new ObjectInputStream(fis);
-      try {
-        courseList = (CourseList) in.readObject();
-        for (Course course1:courseList.getCourses()){
-          courseObservableList.add(course1);
-        }
-      }
-      catch (EOFException | ClassNotFoundException  e){
-        e.printStackTrace();
-      }
-    }
-    catch (IOException e){
-      e.printStackTrace();
-    }
+    load();
   }
 
   //header logic
@@ -831,29 +813,8 @@ public class ManageData implements Initializable, Serializable
 
   //Files
 
-  public void saveButtonSelector(){
-    String containerName = choiceBoxButton.getValue();
-    if(containerName.equals("Courses")){
-      saveCourse();
-    }else if(containerName.equals("Classrooms")){
-
-    }
-    else if(containerName.equals("Groups")){
-
-    }
-    else if(containerName.equals("Examiners")){
-
-    }
-    else if(containerName.equals("Test-takers")){
-
-    }
-    else if(containerName.equals("Exams")){
-
-    }
-  }
-
-  public void saveCourse(){
-    ObjectOutputStream out = null;
+  public void save(){
+    ObjectOutputStream out;
     try {
       File file = new File("courseSaveFile.bin");
       FileOutputStream fos = new FileOutputStream(file);
@@ -866,6 +827,194 @@ public class ManageData implements Initializable, Serializable
       }
     }
     catch (IOException e){
+      e.printStackTrace();
+    }
+
+    try {
+      File file = new File("classroomsSaveFile.bin");
+      FileOutputStream fos = new FileOutputStream(file);
+      out = new ObjectOutputStream(fos);
+      try {
+        out.writeObject(classroomList);
+      }
+      catch (IOException e){
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e){
+      e.printStackTrace();
+    }
+
+    try {
+      File file = new File("groupsSaveFile.bin");
+      FileOutputStream fos = new FileOutputStream(file);
+      out = new ObjectOutputStream(fos);
+      try {
+        out.writeObject(groupList);
+      }
+      catch (IOException e){
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e){
+      e.printStackTrace();
+    }
+
+    try {
+      File file = new File("examinersSaveFile.bin");
+      FileOutputStream fos = new FileOutputStream(file);
+      out = new ObjectOutputStream(fos);
+      try {
+        out.writeObject(examinerList);
+      }
+      catch (IOException e){
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e){
+      e.printStackTrace();
+    }
+
+    try {
+      File file = new File("testTakersSaveFile.bin");
+      FileOutputStream fos = new FileOutputStream(file);
+      out = new ObjectOutputStream(fos);
+      try {
+        out.writeObject(testTakerList);
+      }
+      catch (IOException e){
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e){
+      e.printStackTrace();
+    }
+
+    try {
+      File file = new File("examsSaveFile.bin");
+      FileOutputStream fos = new FileOutputStream(file);
+      out = new ObjectOutputStream(fos);
+      try {
+        out.writeObject(examList);
+      }
+      catch (IOException e){
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e){
+      e.printStackTrace();
+    }
+  }
+
+  public void load(){
+    ObjectInputStream in = null;
+    try {
+      File file = new File("courseSaveFile.bin");
+      FileInputStream fis = new FileInputStream(file);
+      in = new ObjectInputStream(fis);
+      try {
+        courseList = (CourseList) in.readObject();
+        courseObservableList.addAll(courseList.getCourses());
+        for (Course course:courseList.getCourses()){
+          choiceBoxExaminer.getItems().add(course);
+          choiceBoxCourseExam.getItems().add(course);
+        }
+      }
+      catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    try {
+      File file = new File("classroomsSaveFile.bin");
+      FileInputStream fis = new FileInputStream(file);
+      in = new ObjectInputStream(fis);
+      try {
+        classroomList = (ClassroomList) in.readObject();
+        classroomObservableList.addAll(classroomList.getClassrooms());
+        for (Classroom classroom:classroomList.getClassrooms()){
+          choiceBoxClassroomExam.getItems().add(classroom);
+        }
+      }
+      catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    try {
+      File file = new File("groupsSaveFile.bin");
+      FileInputStream fis = new FileInputStream(file);
+      in = new ObjectInputStream(fis);
+      try {
+        groupList = (GroupList) in.readObject();
+        groupObservableList.addAll(groupList.getGroups());
+        for (Group group:groupList.getGroups()){
+          choiceBoxGroupTestTaker.getItems().add(group);
+          choiceBoxGroupExam.getItems().add(group);
+        }
+      }
+      catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    try {
+      File file = new File("examinersSaveFile.bin");
+      FileInputStream fis = new FileInputStream(file);
+      in = new ObjectInputStream(fis);
+      try {
+        examinerList = (ExaminerList) in.readObject();
+        examinerObservableList.addAll(examinerList.getExaminers());
+        for (Examiner examiner:examinerList.getExaminers()){
+          choiceBoxExaminerExam.getItems().add(examiner);
+        }
+      }
+      catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    try {
+      File file = new File("testTakersSaveFile.bin");
+      FileInputStream fis = new FileInputStream(file);
+      in = new ObjectInputStream(fis);
+      try {
+        testTakerList = (TestTakerList) in.readObject();
+        testTakerObservableList.addAll(testTakerList.getTestTakers());
+      }
+      catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    try {
+      File file = new File("examsSaveFile.bin");
+      FileInputStream fis = new FileInputStream(file);
+      in = new ObjectInputStream(fis);
+      try {
+        examList = (ExamList) in.readObject();
+        examObservableList.addAll(examList.getExams());
+      }
+      catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+      }
+    }
+    catch (IOException e) {
       e.printStackTrace();
     }
   }

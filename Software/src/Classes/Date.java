@@ -1,9 +1,10 @@
 package Classes;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Objects;
 
-public class Date
+public class Date implements Serializable
 {
   private int year, month, day;
 
