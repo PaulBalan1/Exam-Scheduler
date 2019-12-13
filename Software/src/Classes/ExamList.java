@@ -1,8 +1,9 @@
 package Classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ExamList
+public class ExamList implements Serializable
 {
   private ArrayList<Exam> exams = null;
 

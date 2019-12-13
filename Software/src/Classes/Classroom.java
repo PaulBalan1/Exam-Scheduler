@@ -1,6 +1,8 @@
 package Classes;
 
-public class Classroom
+import java.io.Serializable;
+
+public class Classroom implements Serializable
 {
   private String name;
   private int capacity;

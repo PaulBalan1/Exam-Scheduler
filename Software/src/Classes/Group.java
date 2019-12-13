@@ -1,6 +1,8 @@
 package Classes;
 
-public class Group
+import java.io.Serializable;
+
+public class Group implements Serializable
 {
   private String groupName;
 

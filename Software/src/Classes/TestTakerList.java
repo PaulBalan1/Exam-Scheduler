@@ -1,9 +1,10 @@
 package Classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class TestTakerList
+public class TestTakerList implements Serializable
 {
   private ArrayList<TestTaker> testTakers = null;
   static ArrayList<String> studyNumbers = new ArrayList<String>();    // Storing so we can check for duplicates, static because we want to access it outside

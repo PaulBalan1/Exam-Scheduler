@@ -1,6 +1,8 @@
 package Classes;
 
-public class TestTaker
+import java.io.Serializable;
+
+public class TestTaker implements Serializable
 {
   private String name;
   private String studyNumber;
