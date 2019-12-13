@@ -67,6 +67,8 @@ public class Date implements Serializable
 
   @Override public String toString()
   {
-    return day+"/"+month+"/"+year;
+    String s="";
+    if(day<10) s="0";
+    return s+day+"/"+month+"/"+year;
   }
 }
