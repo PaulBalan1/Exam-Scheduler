@@ -355,12 +355,7 @@ public class ManageData implements Initializable, Serializable
       examAlert();
       return;
     }
-    for(Exam exam: examList.getExams()){
-      if(exam.getDate().equals(auxDate) && exam.getType().equals(aux.getType())){
-        examSameDateAlert();
-        return;
-      }
-    }
+    //TODO verify if modification results in date / type duplication
     int index = 0;
     for (Exam exam: examList.getExams())
     {
@@ -459,10 +454,6 @@ public class ManageData implements Initializable, Serializable
 
   public void modifyTestTaker(){
     TestTaker aux = new TestTaker(testTakerName.getText(), studyNumber.getText(), (Group)choiceBoxGroupTestTaker.getValue(), nationality.getText());
-    if(!testTakerList.testTakerValidator(aux)){
-      testTakerAlert();
-      return;
-    }
     int index = 0;
     for (TestTaker testTaker: testTakerList.getTestTakers())
     {
@@ -543,10 +534,7 @@ public class ManageData implements Initializable, Serializable
   public void modifyExaminer(){
     Examiner aux = new Examiner(examinerName.getText(), (Course)choiceBoxExaminer.getValue());
     String auxName = examinerName.getText();
-    if(!examinerList.examinerValidator(aux)){
-      nameAlert();
-      return;
-    }
+
     int index = 0;
     for (Examiner examiner: examinerList.getExaminers())
     {
@@ -645,22 +633,27 @@ public class ManageData implements Initializable, Serializable
     }
     String auxName = classroomName.getText();
     int index = 0;
-    for (Classroom classroom: classroomList.getClassrooms())
-    {
-      if(classroom.getName().equals(lastClassroomSelectedName)){
-        classroom.setName(auxName);
-        classroom.setCapacity(Integer.parseInt(capacity.getText()));
-        classroom.setHasProjector(HDMI.isSelected());
-        classroomObservableList.get(index).setName(auxName);
-        classroomObservableList.get(index).setCapacity(Integer.parseInt(capacity.getText()));
-        classroomObservableList.get(index).setHasProjector(HDMI.isSelected());
-        lastClassroomSelectedName = classroomName.getText();
-        classroomTableView.refresh();
-        choiceBoxClassroomExam.getItems().set(index,classroom);
-        break;
+    if(classroomList.classroomValidator(new Classroom(auxName, 10, true)))
+      for (Classroom classroom: classroomList.getClassrooms())
+      {
+        if(classroom.getName().equals(lastClassroomSelectedName)){
+          classroom.setName(auxName);
+          classroom.setCapacity(Integer.parseInt(capacity.getText()));
+          classroom.setHasProjector(HDMI.isSelected());
+          classroomObservableList.get(index).setName(auxName);
+          classroomObservableList.get(index).setCapacity(Integer.parseInt(capacity.getText()));
+          classroomObservableList.get(index).setHasProjector(HDMI.isSelected());
+          lastClassroomSelectedName = classroomName.getText();
+          classroomTableView.refresh();
+          choiceBoxClassroomExam.getItems().set(index,classroom);
+          break;
+        }
+        index++;
       }
-      index++;
-    }
+      else{
+        nameAlert();
+        return;
+      }
   }
 
 
@@ -723,18 +716,23 @@ public class ManageData implements Initializable, Serializable
   public void modifyCourse(){
     String auxName = courseName.getText();
     int index = 0;
+    if(courseList.courseNameValidator(new Course(auxName)))
     for (Course course: courseList.getCourses())
-    {
-      if(course.getName().equals(lastCourseSelectedName)){
-        course.setName(auxName);
-        courseObservableList.get(index).setName(auxName);
-        courseTableView.refresh();
-        choiceBoxExaminer.getItems().set(index,course);
-        choiceBoxCourseExam.getItems().set(index,course);
-        examinerTableView.refresh();
-        break;
+      {
+        if(course.getName().equals(lastCourseSelectedName)){
+          course.setName(auxName);
+          courseObservableList.get(index).setName(auxName);
+          courseTableView.refresh();
+          choiceBoxExaminer.getItems().set(index,course);
+          choiceBoxCourseExam.getItems().set(index,course);
+          examinerTableView.refresh();
+          break;
+        }
+        index++;
       }
-      index++;
+    else{
+      nameAlert();
+      return;
     }
   }
 
@@ -794,18 +792,23 @@ public class ManageData implements Initializable, Serializable
   public void modifyGroup(){
     String auxName = groupName.getText();
     int index = 0;
-    for (Group group: groupList.getGroups())
-    {
-      if(group.getGroupName().equals(lastGroupSelectedName)){
-        group.setGroupName(auxName);
-        groupObservableList.get(index).setGroupName(auxName);
-        groupTableView.refresh();
-        choiceBoxGroupTestTaker.getItems().set(index, group);
-        choiceBoxGroupExam.getItems().set(index, group);
-        testTakerTableView.refresh();
-        break;
+    if(groupList.groupNameValidator(new Group(auxName)))
+      for (Group group: groupList.getGroups())
+      {
+        if(group.getGroupName().equals(lastGroupSelectedName)){
+          group.setGroupName(auxName);
+          groupObservableList.get(index).setGroupName(auxName);
+          groupTableView.refresh();
+          choiceBoxGroupTestTaker.getItems().set(index, group);
+          choiceBoxGroupExam.getItems().set(index, group);
+          testTakerTableView.refresh();
+          break;
+        }
+        index++;
       }
-      index++;
+    else{
+      nameAlert();
+      return;
     }
   }
 
