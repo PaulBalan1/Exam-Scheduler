@@ -1,0 +1,38 @@
+/* Exam Schedule Page - by Pavel Balan --------------------------*/
+
+#headerSchedule{
+	text-align: center;
+	margin-left: 20%;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+table{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th{
+	padding: 1.5em;
+	background-color: #4287ff;
+	color: #ffffff;
+}
+
+td{
+	text-align: center;
+	padding: 1em;
+}
+
+tr:nth-child(odd){
+	background-color: #f2f7ff;
+}
+
+tr:nth-child(even){
+	background-color: #ffffff;
+}
+
+tr:hover{
+	background-color: #bfd7ff;
+}
