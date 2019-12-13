@@ -321,12 +321,40 @@ public class ManageData implements Initializable, Serializable
           day.setText(""+aux.getDate().getDay());
           month.setText(""+aux.getDate().getMonth());
           year.setText(""+aux.getDate().getYear());
-          choiceBoxCourseExam.setValue(aux.getCourse());
-          choiceBoxExaminerExam.setValue(aux.getExaminer());
+          int i=-1;
+          for (Course course: courseList.getCourses())
+          {
+            i++;
+            if(course.getName().equals(aux.getCourse().getName())) break;
+          }
+          choiceBoxCourseExam.getSelectionModel().select(i);
+
+          i=-1;
+          for (Group group: groupList.getGroups())
+          {
+            i++;
+            if(group.getGroupName().equals(aux.getGroup().getGroupName())) break;
+          }
+          choiceBoxGroupExam.getSelectionModel().select(i);
+
+          i=-1;
+          for (Examiner examiner: examinerList.getExaminers())
+          {
+            i++;
+            if(examiner.getName().equals(aux.getExaminer().getName())) break;
+          }
+          choiceBoxExaminerExam.getSelectionModel().select(i);
+
+          i=-1;
+          for (Classroom classroom: classroomList.getClassrooms())
+          {
+            i++;
+            if(classroom.getName().equals(aux.getClassroom().getName())) break;
+          }
+          choiceBoxClassroomExam.getSelectionModel().select(i);
+
           coExaminer.setText(aux.getCoExaminer());
-          choiceBoxGroupExam.setValue(aux.getGroup());
           type.setValue(aux.getType());
-          choiceBoxClassroomExam.setValue(aux.getClassroom());
           lastExamNameSelected = examName.getText();
         }
       }
@@ -430,7 +458,13 @@ public class ManageData implements Initializable, Serializable
           testTakerName.setText(aux.getName());
           studyNumber.setText(aux.getStudyNumber());
           nationality.setText(aux.getNationality());
-          choiceBoxGroupTestTaker.setValue(aux.getGroup());
+          int i=-1;
+          for (Group group: groupList.getGroups())
+          {
+            i++;
+            if(group.getGroupName().equals(aux.getGroup().getGroupName())) break;
+          }
+          choiceBoxGroupTestTaker.getSelectionModel().select(i);
           lastTestTakerSelectedNumber = studyNumber.getText();
         }
       }
