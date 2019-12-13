@@ -16,7 +16,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
-import javax.print.attribute.standard.JobKOctets;
 import java.io.*;
 import java.net.URL;
 import java.util.Calendar;
@@ -27,8 +26,6 @@ public class ManageData implements Initializable, Serializable
   //header
   @FXML Button backButton;
   @FXML ChoiceBox<String> choiceBoxButton;
-
-  //dropdowns moved to corresponding tags below
 
   //Panes
   @FXML Pane courses;
@@ -139,7 +136,7 @@ public class ManageData implements Initializable, Serializable
 
   //header logic
 
-  public void getSelectedOption(ActionEvent event){
+  public void getSelectedOption(){
      showSelectedContainer(choiceBoxButton.getValue());
   }
 
@@ -271,7 +268,7 @@ public class ManageData implements Initializable, Serializable
 
   public void addExam(){
     try{
-      if((Integer.parseInt(day.getText())<1 || Integer.parseInt(day.getText())>31) || ((Integer.parseInt(month.getText())<1 || Integer.parseInt(month.getText())>12)) || (Integer.parseInt(year.getText())<Calendar.getInstance().get(Calendar.YEAR) || Integer.parseInt(year.getText())>2100)){
+      if((Integer.parseInt(day.getText())<1 || Integer.parseInt(day.getText())>31) || ((Integer.parseInt(month.getText())<1 || Integer.parseInt(month.getText())>12)) || (Integer.parseInt(year.getText())<Calendar.getInstance().get(Calendar.YEAR) || Integer.parseInt(year.getText())>2200)){
         examAlert();
         return;
       }
@@ -280,13 +277,15 @@ public class ManageData implements Initializable, Serializable
       return;
     }
     Date auxDate = new Date(Integer.parseInt(day.getText()), Integer.parseInt(month.getText()), Integer.parseInt(year.getText()));
+    Exam aux = new Exam(examName.getText(), auxDate, (Course)choiceBoxCourseExam.getValue(), (Examiner)choiceBoxExaminerExam.getValue(), coExaminer.getText(), (Group)choiceBoxGroupExam.getValue(), (String)type.getValue(), (Classroom)choiceBoxClassroomExam.getValue());
+
     for(Exam exam: examList.getExams()){
-      if(exam.getDate().equals(auxDate)){
-        examAlert();
+      if(exam.getDate().equals(auxDate) && exam.getType().equals(aux.getType())){
+        examSameDateAlert();
         return;
       }
     }
-    Exam aux = new Exam(examName.getText(), auxDate, (Course)choiceBoxCourseExam.getValue(), (Examiner)choiceBoxExaminerExam.getValue(), coExaminer.getText(), (Group)choiceBoxGroupExam.getValue(), (String)type.getValue(), (Classroom)choiceBoxClassroomExam.getValue());
+
     if(examList.examValidator(aux)){
       examList.addExam(aux);
       examObservableList.add(aux);
@@ -338,6 +337,12 @@ public class ManageData implements Initializable, Serializable
       examAlert();
       return;
     }
+    for(Exam exam: examList.getExams()){
+      if(exam.getDate().equals(auxDate) && exam.getType().equals(aux.getType())){
+        examSameDateAlert();
+        return;
+      }
+    }
     int index = 0;
     for (Exam exam: examList.getExams())
     {
@@ -388,7 +393,6 @@ public class ManageData implements Initializable, Serializable
       index++;
     }
   }
-
 
   //Test-taker logic
 
@@ -1038,7 +1042,14 @@ public class ManageData implements Initializable, Serializable
   public void examAlert(){
     Alert alert = new Alert(Alert.AlertType.ERROR);
     alert.setTitle("Invalid exam input");
-    alert.setHeaderText("Exam name/date might be duplicate, invalid or Co-Examiner name might contain illegal characters!");
+    alert.setHeaderText("Exam date might be invalid or Co-Examiner name might contain illegal characters!");
+    alert.showAndWait();
+  }
+
+  public void examSameDateAlert(){
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Invalid exam date");
+    alert.setHeaderText("Exam with this date and type already exists!");
     alert.showAndWait();
   }
 } 

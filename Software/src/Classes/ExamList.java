@@ -14,11 +14,8 @@ public class ExamList implements Serializable
   public boolean examValidator(Exam exam){
     String coExaminer = exam.getCoExaminer();
     String examName = exam.getName();
-    Date auxDate = exam.getDate();
-    int day = auxDate.getDay();
-    int month = auxDate.getMonth();
-    int year = auxDate.getYear();
     if(examName.equals("")) return false;
+    if(exam.getCourse().equals(null) || exam.getGroup().equals(null) || exam.getClassroom().equals(null) || exam.getExaminer().equals(null)) return false;
     if(coExaminer.matches(".*\\d.*")){
       return false;
     }

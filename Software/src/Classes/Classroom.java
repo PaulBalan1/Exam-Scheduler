@@ -45,6 +45,6 @@ public class Classroom implements Serializable
 
   @Override public String toString()
   {
-    return name + " " + capacity + " " + (hasProjector?"YES":"NO");
+    return name + " cap=" + capacity + " HDMI=" + (hasProjector?"YES":"NO");
   }
 }

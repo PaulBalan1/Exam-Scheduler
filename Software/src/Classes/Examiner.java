@@ -34,6 +34,7 @@ public class Examiner implements Serializable {
 
     @Override
     public String toString() {
-        return name + " " + course;
+        if(course==null) return name;
+        return name + " @ " + course;
     }
 }
