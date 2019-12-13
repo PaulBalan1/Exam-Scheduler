@@ -11,11 +11,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
+import java.awt.*;
 import java.io.*;
 import java.net.URL;
 import java.util.Calendar;
@@ -506,7 +509,17 @@ public class ManageData implements Initializable, Serializable
         {
           Examiner aux = (Examiner) selectedCells.get(0);
           examinerName.setText(aux.getName());
-          choiceBoxExaminer.setValue(aux.getCourse());
+
+          //Change this
+          int i=-1;
+          for (Course course: courseList.getCourses())
+          {
+            i++;
+            if(course.getName().equals(aux.getCourse().getName())) break;
+          }
+          choiceBoxExaminer.getSelectionModel().select(i);
+          //until here
+
           lastExaminerSelectedName = examinerName.getText();
         }
       }
