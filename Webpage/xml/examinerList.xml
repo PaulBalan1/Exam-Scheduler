@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<examinerlist>
+  <examiners>
+    <name>Michael</name>
+    <course>
+      <name>SDJ</name>
+    </course>
+  </examiners>
+  <examiners>
+    <name>NIkolai</name>
+    <course>
+      <name>RWD</name>
+    </course>
+  </examiners>
+</examinerlist>

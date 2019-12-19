@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testtakerlist>
+  <testTakers>
+    <nationality>RO</nationality>
+    <name>Alex Vasilianov</name>
+    <studyNumber>121</studyNumber>
+    <group>
+      <groupName>1z</groupName>
+    </group>
+  </testTakers>
+  <testTakers>
+    <nationality>RO</nationality>
+    <name>Paul Balan</name>
+    <studyNumber>1112</studyNumber>
+    <group>
+      <groupName>1z</groupName>
+    </group>
+  </testTakers>
+</testtakerlist>

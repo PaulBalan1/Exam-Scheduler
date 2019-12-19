@@ -17,6 +17,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import persistence.MyXmlConverter;
+import persistence.XmlConverterException;
 
 import java.awt.*;
 import java.io.*;
@@ -863,13 +865,15 @@ public class ManageData implements Initializable, Serializable
   public void save(){
     ObjectOutputStream out;
     try {
-      File file = new File("courseSaveFile.bin");
+      File file = new File("save/courseSaveFile.bin");
       FileOutputStream fos = new FileOutputStream(file);
       out = new ObjectOutputStream(fos);
       try {
         out.writeObject(courseList);
+        MyXmlConverter converter = new MyXmlConverter();
+        File file1 = converter.toXml(courseList, "Webpage/xml/courseList.xml");
       }
-      catch (IOException e){
+      catch (IOException | XmlConverterException e){
         e.printStackTrace();
       }
     }
@@ -878,13 +882,15 @@ public class ManageData implements Initializable, Serializable
     }
 
     try {
-      File file = new File("classroomsSaveFile.bin");
+      File file = new File("save/classroomsSaveFile.bin");
       FileOutputStream fos = new FileOutputStream(file);
       out = new ObjectOutputStream(fos);
       try {
         out.writeObject(classroomList);
+        MyXmlConverter converter = new MyXmlConverter();
+        File file1 = converter.toXml(classroomList, "Webpage/xml/classroomList.xml");
       }
-      catch (IOException e){
+      catch (IOException | XmlConverterException e){
         e.printStackTrace();
       }
     }
@@ -893,13 +899,15 @@ public class ManageData implements Initializable, Serializable
     }
 
     try {
-      File file = new File("groupsSaveFile.bin");
+      File file = new File("save/groupsSaveFile.bin");
       FileOutputStream fos = new FileOutputStream(file);
       out = new ObjectOutputStream(fos);
       try {
         out.writeObject(groupList);
+        MyXmlConverter converter = new MyXmlConverter();
+        File file1 = converter.toXml(groupList, "Webpage/xml/groupList.xml");
       }
-      catch (IOException e){
+      catch (IOException | XmlConverterException e){
         e.printStackTrace();
       }
     }
@@ -908,13 +916,15 @@ public class ManageData implements Initializable, Serializable
     }
 
     try {
-      File file = new File("examinersSaveFile.bin");
+      File file = new File("save/examinersSaveFile.bin");
       FileOutputStream fos = new FileOutputStream(file);
       out = new ObjectOutputStream(fos);
       try {
         out.writeObject(examinerList);
+        MyXmlConverter converter = new MyXmlConverter();
+        File file1 = converter.toXml(examinerList, "Webpage/xml/examinerList.xml");
       }
-      catch (IOException e){
+      catch (IOException | XmlConverterException e){
         e.printStackTrace();
       }
     }
@@ -923,13 +933,15 @@ public class ManageData implements Initializable, Serializable
     }
 
     try {
-      File file = new File("testTakersSaveFile.bin");
+      File file = new File("save/testTakersSaveFile.bin");
       FileOutputStream fos = new FileOutputStream(file);
       out = new ObjectOutputStream(fos);
       try {
         out.writeObject(testTakerList);
+        MyXmlConverter converter = new MyXmlConverter();
+        File file1 = converter.toXml(testTakerList, "Webpage/xml/testTakerList.xml");
       }
-      catch (IOException e){
+      catch (IOException | XmlConverterException e){
         e.printStackTrace();
       }
     }
@@ -938,13 +950,15 @@ public class ManageData implements Initializable, Serializable
     }
 
     try {
-      File file = new File("examsSaveFile.bin");
+      File file = new File("save/examsSaveFile.bin");
       FileOutputStream fos = new FileOutputStream(file);
       out = new ObjectOutputStream(fos);
       try {
         out.writeObject(examList);
+        MyXmlConverter converter = new MyXmlConverter();
+        File file1 = converter.toXml(examList, "Webpage/xml/examList.xml");
       }
-      catch (IOException e){
+      catch (IOException | XmlConverterException e){
         e.printStackTrace();
       }
     }
@@ -956,7 +970,7 @@ public class ManageData implements Initializable, Serializable
   public void load(){
     ObjectInputStream in = null;
     try {
-      File file = new File("courseSaveFile.bin");
+      File file = new File("save/courseSaveFile.bin");
       FileInputStream fis = new FileInputStream(file);
       in = new ObjectInputStream(fis);
       try {
@@ -976,7 +990,7 @@ public class ManageData implements Initializable, Serializable
     }
 
     try {
-      File file = new File("classroomsSaveFile.bin");
+      File file = new File("save/classroomsSaveFile.bin");
       FileInputStream fis = new FileInputStream(file);
       in = new ObjectInputStream(fis);
       try {
@@ -995,7 +1009,7 @@ public class ManageData implements Initializable, Serializable
     }
 
     try {
-      File file = new File("groupsSaveFile.bin");
+      File file = new File("save/groupsSaveFile.bin");
       FileInputStream fis = new FileInputStream(file);
       in = new ObjectInputStream(fis);
       try {
@@ -1015,7 +1029,7 @@ public class ManageData implements Initializable, Serializable
     }
 
     try {
-      File file = new File("examinersSaveFile.bin");
+      File file = new File("save/examinersSaveFile.bin");
       FileInputStream fis = new FileInputStream(file);
       in = new ObjectInputStream(fis);
       try {
@@ -1034,7 +1048,7 @@ public class ManageData implements Initializable, Serializable
     }
 
     try {
-      File file = new File("testTakersSaveFile.bin");
+      File file = new File("save/testTakersSaveFile.bin");
       FileInputStream fis = new FileInputStream(file);
       in = new ObjectInputStream(fis);
       try {
@@ -1050,7 +1064,7 @@ public class ManageData implements Initializable, Serializable
     }
 
     try {
-      File file = new File("examsSaveFile.bin");
+      File file = new File("save/examsSaveFile.bin");
       FileInputStream fis = new FileInputStream(file);
       in = new ObjectInputStream(fis);
       try {
@@ -1065,6 +1079,12 @@ public class ManageData implements Initializable, Serializable
       e.printStackTrace();
     }
   }
+
+  public void generateSchedule(){
+
+  }
+
+
 
   //Alerts
 
